@@ -3,26 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Case - UM-02</title>
+    <title>Use Case: User Management (CRUD Permissions)</title>
     <style>
-        img {
-            width:600px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
         }
-        div {
-            max-width:100%;
+
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .use-case-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .gray-bg {
+            background-color: #f0f0f0;
+        }
+
+        .priority-high {
+            color: #b22222;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .flow-header {
+            background-color: #b22222;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .alternate-flow {
+            background-color: #f9f9f9;
+        }
+
+        .checkbox-container {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            td, th {
+                padding: 8px;
+            }
         }
     </style>
 </head>
 <body>
-    <div>
-        <img src = "./Images/UM-02(0).png" alt = "Use Case - UM-01(0)">
-    </div>
-    <div>
-        <img src = "./Images/UM-02(1).png" alt = "Use Case - UM-01(1)">
-    </div>
-    <div>
-        <img src = "./Images/UM-02(2).png" alt = "Use Case - UM-01(2)">
-    </div>
+    <div class="use-case-container">
+        <header>
+            <h1>USE CASE NARRATIVE</h1>
+            <h2>User Management (CRUD Permissions)</h2>
+        </header>
 
+        <div class="section">
+            <table>
+                <tr>
+                    <td><strong>Use Case ID</strong></td>
+                    <td>UM-02</td>
+                    <td><strong>Version</strong></td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td><strong>Use Case Name</strong></td>
+                    <td>CRUD Permissions</td>
+                    <td><strong>Date</strong></td>
+                    <td>2024-11-02</td>
+                </tr>
+                <tr>
+                    <td><strong>Author</strong></td>
+                    <td>Tony Power</td>
+                    <td><strong>Complexity</strong></td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td><strong>Priority</strong></td>
+                    <td colspan="3" class="priority-high">High</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="checkbox-container">
+                <strong>Use Case Type:</strong><br>
+                ☐ Business Requirement<br>
+                ☒ System Analysis
+            </div>
+
+            <table>
+                <tr>
+                    <td><strong>Source</strong></td>
+                    <td>Business Requirement</td>
+                </tr>
+                <tr>
+                    <td><strong>Primary Actor</strong></td>
+                    <td>Admin</td>
+                </tr>
+                <tr>
+                    <td><strong>Other Actor(s)</strong></td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td><strong>Stakeholders</strong></td>
+                    <td>
+                        <ul>
+                            <li>HR</li>
+                            <li>IT Department</li>
+                            <li>Management</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Description</strong></td>
+                    <td>Allows the Admin to manage system permissions by creating, reading, updating, and deleting permission levels. This functionality ensures that users have appropriate access rights to perform their roles securely.</td>
+                </tr>
+                <tr>
+                    <td><strong>Precondition(s)</strong></td>
+                    <td>
+                        <ul>
+                            <li>Admin is authenticated and logged into the system.</li>
+                            <li>Database of permissions is accessible.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Trigger(s)</strong></td>
+                    <td>Admin initiates a request to create, view, edit, or delete a permission level.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+            <table>
+                <tr>
+                    <th>Actor Action</th>
+                    <th>System/Result, Info required</th>
+                </tr>
+                <tr>
+                    <td>1. Admin selects "Manage Permissions" option</td>
+                    <td>1. System displays list of all permissions</td>
+                </tr>
+                <tr>
+                    <td>2. Admin chooses "Add New Permission"</td>
+                    <td>2. System prompts for permission details (e.g., name, description)</td>
+                </tr>
+                <tr>
+                    <td>3. Admin enters required details and saves</td>
+                    <td>3. System saves new permission and confirms creation</td>
+                </tr>
+                <tr>
+                    <td>4. Admin selects an existing permission to edit</td>
+                    <td>4. System displays current permission settings</td>
+                </tr>
+                <tr>
+                    <td>5. Admin modifies details and saves changes</td>
+                    <td>5. System confirms that changes are saved</td>
+                </tr>
+                <tr>
+                    <td>6. Admin selects "Delete" on a permission</td>
+                    <td>6. System prompts for confirmation before deletion</td>
+                </tr>
+                <tr>
+                    <td>7. Admin confirms deletion</td>
+                    <td>7. System removes permission and confirms deletion</td>
+                </tr>
+            </table>
+
+            <h3 class="flow-header">Alternate Flow</h3>
+            <table>
+                <tr>
+                    <th>Actor Action</th>
+                    <th>System/Result, Info required</th>
+                </tr>
+                <tr>
+                    <td>1. Admin attempts to delete a core system permission</td>
+                    <td>1. System warns that core permissions cannot be deleted</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Additional Information</h3>
+            <table>
+                <tr>
+                    <td><strong>Conclusion</strong></td>
+                    <td>Admin successfully manages permission settings, ensuring secure and appropriate access control for users.</td>
+                </tr>
+                <tr>
+                    <td><strong>Post condition</strong></td>
+                    <td>Updated permissions are stored in the database and applied to relevant users.</td>
+                </tr>
+                <tr>
+                    <td><strong>Business Rules</strong></td>
+                    <td>
+                        <ul>
+                            <li>Only Admin has permission to manage system permissions.</li>
+                            <li>Core permissions (e.g., "Admin Access") cannot be deleted.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Special Requirements</strong></td>
+                    <td>Permissions should align with organizational roles and security policies.</td>
+                </tr>
+                <tr>
+                    <td><strong>Constraints and Specifications</strong></td>
+                    <td>Only authorized users can access the permissions management section.</td>
+                </tr>
+                <tr>
+                    <td><strong>Technology and Data</strong></td>
+                    <td>System database with role-based access control capabilities.</td>
+                </tr>
+                <tr>
+                    <td><strong>Frequency</strong></td>
+                    <td>As needed, typically when new roles or access changes are required.</td>
+                </tr>
+                <tr>
+                    <td><strong>Assumptions</strong></td>
+                    <td>Admin has sufficient understanding of roles and permissions within the organization.</td>
+                </tr>
+                <tr>
+                    <td><strong>Notes / Open Issues</strong></td>
+                    <td>Determine if permissions should be grouped or tiered by department or function for scalability.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
