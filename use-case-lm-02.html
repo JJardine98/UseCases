@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Case: Location Inventory Management (View Inventory)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .use-case-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .flow-header {
+            background-color: #b22222;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .priority-high {
+            color: #b22222;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            td, th {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="use-case-container">
+        <header>
+            <h1>USE CASE NARRATIVE</h1>
+            <h2>Location Inventory Management (View Inventory)</h2>
+        </header>
+
+        <div class="section">
+            <table>
+                <tr>
+                    <td><strong>Use Case ID</strong></td>
+                    <td>LI-02</td>
+                    <td><strong>Version</strong></td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td><strong>Use Case Name</strong></td>
+                    <td>View Inventory</td>
+                    <td><strong>Date</strong></td>
+                    <td>2024-11-02</td>
+                </tr>
+                <tr>
+                    <td><strong>Author</strong></td>
+                    <td>Tony Power</td>
+                    <td><strong>Complexity</strong></td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td><strong>Priority</strong></td>
+                    <td colspan="3" class="priority-high">High</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="checkbox-container">
+                <strong>Use Case Type:</strong><br>
+                ☒ Business Requirement<br>
+                ☐ System Analysis
+            </div>
+
+
+            <table>
+                <tr>
+                    <td><strong>Source</strong></td>
+                    <td>Business Requirement</td>
+                </tr>
+                <tr>
+                    <td><strong>Primary Actor</strong></td>
+                    <td>Warehouse Worker, Store Manager, Store</td>
+                </tr>
+                <tr>
+                    <td><strong>Other Actor(s)</strong></td>
+                    <td>Warehouse</td>
+                </tr>
+                <tr>
+                    <td><strong>Stakeholders</strong></td>
+                    <td>
+                        <ul>
+                            <li>Store Employees</li>
+                            <li>Management</li>
+                            <li>Warehouse Staff</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+            <table>
+                <tr>
+                    <th>Actor Action</th>
+                    <th>System/Result, Info required</th>
+                </tr>
+                <tr>
+                    <td>1. User selects "View Inventory"</td>
+                    <td>System displays a list of locations and inventory categories</td>
+                </tr>
+                <tr>
+                    <td>2. User selects location or category</td>
+                    <td>System displays inventory details (e.g., quantity, description)</td>
+                </tr>
+                <tr>
+                    <td>3. User filters or sorts inventory data</td>
+                    <td>System applies filter or sort criteria to inventory display</td>
+                </tr>
+                <tr>
+                    <td>4. User views detailed item info</td>
+                    <td>System displays specific details for selected inventory item</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Additional Information</h3>
+            <table>
+                <tr>
+                    <td><strong>Business Rules</strong></td>
+                    <td>
+                        <ul>
+                            <li>Inventory data displayed must reflect the latest stock levels.</li>
+                            <li>Users should only access locations they are authorized to view.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Special Requirements</strong></td>
+                    <td>Real-time updates to ensure accuracy. Interface should support intuitive filtering and sorting options.</td>
+                </tr>
+                <tr>
+                    <td><strong>Constraints and Specifications</strong></td>
+                    <td>Display should load quickly (e.g., within 1-2 seconds) for optimal user experience.</td>
+                </tr>
+                <tr>
+                    <td><strong>Technology and Data</strong></td>
+                    <td>Database holding current inventory levels and related details. User access control for data security.</td>
+                </tr>
+                <tr>
+                    <td><strong>Frequency</strong></td>
+                    <td>As needed, multiple times daily by store or warehouse staff.</td>
+                </tr>
+                <tr>
+                    <td><strong>Assumptions</strong></td>
+                    <td>User understands the categorization and structure of the inventory data displayed.</td>
+                </tr>
+                <tr>
+                    <td><strong>Notes / Open Issues</strong></td>
+                    <td>Determine if detailed inventory views should include historical data or just current stock levels.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
