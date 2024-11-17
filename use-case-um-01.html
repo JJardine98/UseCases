@@ -162,6 +162,21 @@
                         </ul>
                     </td>
                 </tr>
+                <tr>
+                    <td><strong>Description</strong></td>
+                    <td>Allows the admin to create, read, update, and delete employee records in the system. This includes employee information such as name, position, department, and contact details. Managing employee records ensures accurate access control and system permissions alignment.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pre Condition(s)</strong></td>
+                    <td>Admin must be logged into the system with appropriate permissions.<br>System database must be accessible.</td>
+                </tr>
+                <tr>
+                    <td><strong>Triggers</strong></td>
+                    <td>Admin initiates an action to create, view, edit, or delete an employee record.
+                    </td>
+                </tr>
+                
+                
             </table>
         </div>
 
@@ -200,12 +215,29 @@
                     <td>7. Admin confirms deletion</td>
                     <td>7. System removes employee record and confirms deletion</td>
                 </tr>
+
+                <tr>
+                    <td><strong>Conclusion</strong></td>
+                    <td>Admin successfully manages employee records, ensuring up-to-date personnel information in the system.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Post Condition(s)</strong></td>
+                    <td>Updated employee information is stored in the database.
+
+                    </td>
+                    
+                </tr>
             </table>
         </div>
+
+
 
         <div class="section">
             <h3 class="flow-header">Additional Information</h3>
             <table>
+                
                 <tr>
                     <td><strong>Business Rules</strong></td>
                     <td>

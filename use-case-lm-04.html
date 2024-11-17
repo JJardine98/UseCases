@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Case: User Management (CRUD Permissions)</title>
+    <title>Use Case: Location Inventory Management (View Inventory)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,23 +46,12 @@
             text-align: left;
         }
 
-        .gray-bg {
+        th {
             background-color: #f0f0f0;
         }
 
-        .priority-high {
-            color: #b22222;
-            font-weight: bold;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 8px;
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
 
         .flow-header {
@@ -70,22 +59,26 @@
             color: white;
             padding: 10px;
             border-radius: 4px;
-            margin-top: 20px;
         }
 
-        .alternate-flow {
-            background-color: #f9f9f9;
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
         }
 
-        .checkbox-container {
-            margin: 10px 0;
+        li {
+            margin-bottom: 8px;
+        }
+
+        .priority-high {
+            color: #b22222;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
             body {
                 padding: 10px;
             }
-            
             td, th {
                 padding: 8px;
             }
@@ -96,20 +89,20 @@
     <div class="use-case-container">
         <header>
             <h1>USE CASE NARRATIVE</h1>
-            <h2>User Management (CRUD Permissions)</h2>
+            <h2>Location Inventory Management (Move Inventory)</h2>
         </header>
 
         <div class="section">
             <table>
                 <tr>
                     <td><strong>Use Case ID</strong></td>
-                    <td>UM-02</td>
+                    <td>LI-04</td>
                     <td><strong>Version</strong></td>
                     <td>1.0</td>
                 </tr>
                 <tr>
                     <td><strong>Use Case Name</strong></td>
-                    <td>CRUD Permissions</td>
+                    <td>Move Inventory</td>
                     <td><strong>Date</strong></td>
                     <td>2024-11-02</td>
                 </tr>
@@ -129,8 +122,8 @@
         <div class="section">
             <div class="checkbox-container">
                 <strong>Use Case Type:</strong><br>
-                ☐ Business Requirement<br>
-                ☒ System Analysis
+                ☒ Business Requirement<br>
+                ☐ System Analysis
             </div>
 
             <table>
@@ -140,40 +133,36 @@
                 </tr>
                 <tr>
                     <td><strong>Primary Actor</strong></td>
-                    <td>Admin</td>
+                    <td>Warehouse, Warehouse Worker, Store Manager, Store</td>
                 </tr>
                 <tr>
                     <td><strong>Other Actor(s)</strong></td>
-                    <td>None</td>
+                    <td>Delivery Driver</td>
                 </tr>
                 <tr>
                     <td><strong>Stakeholders</strong></td>
                     <td>
                         <ul>
-                            <li>HR</li>
-                            <li>IT Department</li>
+                            <li>Inventory Control</li>
                             <li>Management</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <td><strong>Description</strong></td>
-                    <td>Allows the Admin to manage system permissions by creating, reading, updating, and deleting permission levels. This functionality ensures that users have appropriate access rights to perform their roles securely.</td>
-                </tr>
-                <tr>
-                    <td><strong>Precondition(s)</strong></td>
-                    <td>
-                        <ul>
-                            <li>Admin is authenticated and logged into the system.</li>
-                            <li>Database of permissions is accessible.</li>
-                        </ul>
+                    <td>This use case allows authorized users to transfer inventory within or between warehouse and store locations. This includes preparing items for transport, updating location records, and confirming arrival at the destination.
                     </td>
+                    
                 </tr>
                 <tr>
-                    <td><strong>Trigger(s)</strong></td>
-                    <td>Admin initiates a request to create, view, edit, or delete a permission level.</td>
+                    <td><strong>Pre Condition(s)</strong></td>
+                    <td>User has authorization to initiate inventory movement.<br>Sufficient stock exists at the source location for the transfer.</td>
                 </tr>
                 <tr>
+                    <td><strong>Triggers</strong></td>
+                    <td>User selects the "Move Inventory" option from the inventory management interface, specifying source and destination locations.</td>
+                </tr>
+                
                 
             </table>
         </div>
@@ -186,35 +175,25 @@
                     <th>System/Result, Info required</th>
                 </tr>
                 <tr>
-                    <td>1. Admin selects "Manage Permissions" option</td>
-                    <td>1. System displays list of all permissions</td>
+                    <td>1. User selects source and destination.</td>
+                    <td>System displays available inventory at the source location.</td>
                 </tr>
                 <tr>
-                    <td>2. Admin chooses "Add New Permission"</td>
-                    <td>2. System prompts for permission details (e.g., name, description)</td>
+                    <td>2. User specifies items and quantity.</td>
+                    <td>System verifies availability and validates input.</td>
                 </tr>
                 <tr>
-                    <td>3. Admin enters required details and saves</td>
-                    <td>3. System saves new permission and confirms creation</td>
+                    <td>3. User confirms transfer.</td>
+                    <td>System updates inventory levels at both source and destination locations.</td>
                 </tr>
                 <tr>
-                    <td>4. Admin selects an existing permission to edit</td>
-                    <td>4. System displays current permission settings</td>
-                </tr>
-                <tr>
-                    <td>5. Admin modifies details and saves changes</td>
-                    <td>5. System confirms that changes are saved</td>
-                </tr>
-                <tr>
-                    <td>6. Admin selects "Delete" on a permission</td>
-                    <td>6. System prompts for confirmation before deletion</td>
-                </tr>
-                <tr>
-                    <td>7. Admin confirms deletion</td>
-                    <td>7. System removes permission and confirms deletion</td>
+                    <td>4. System assigns tracking for the move.</td>
+                    <td>System generates tracking details and notifies the destination for receiving.</td>
                 </tr>
             </table>
+        </div>
 
+        <div class="section">
             <h3 class="flow-header">Alternate Flow</h3>
             <table>
                 <tr>
@@ -222,23 +201,23 @@
                     <th>System/Result, Info required</th>
                 </tr>
                 <tr>
-                    <td>1. Admin attempts to delete a core system permission</td>
-                    <td>1. System warns that core permissions cannot be deleted</td>
+                    <td>1. User cancels transfer action.</td>
+                    <td>System discards changes and returns to the previous screen.</td>
                 </tr>
-
+                <tr>
+                    <td>2. Insufficient inventory at source.</td>
+                    <td>System notifies user of unavailable quantity and requests a lower amount.</td>
+                </tr>
                 <tr>
                     <td><strong>Conclusion</strong></td>
-                    <td>Admin successfully manages permission settings, ensuring secure and appropriate access control for users.
-
-                    </td>
+                    <td>Inventory items are successfully transferred to the specified destination, with stock levels updated in the system.</td>
                 </tr>
                 <tr>
                     <td><strong>Post Condition(s)</strong></td>
-                    <td>Updated permissions are stored in the database and applied to relevant users.
-
-                    </td>
+                    <td>The destination location’s inventory reflects the new items, and the source inventory is reduced accordingly.</td>
                     
                 </tr>
+                
             </table>
         </div>
 
@@ -250,34 +229,39 @@
                     <td><strong>Business Rules</strong></td>
                     <td>
                         <ul>
-                            <li>Only Admin has permission to manage system permissions.</li>
-                            <li>Core permissions (e.g., "Admin Access") cannot be deleted.</li>
+                            <li> User must have authorization to move inventory..</li>
+                            <li>Source inventory must meet or exceed the quantity requested for transfer.</li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <td><strong>Special Requirements</strong></td>
-                    <td>Permissions should align with organizational roles and security policies.</td>
+                    <td> System should provide confirmation notifications upon successful transfer..<br>Movement details should be timestamped for tracking purposes.</td>
+                    
                 </tr>
                 <tr>
                     <td><strong>Constraints and Specifications</strong></td>
-                    <td>Only authorized users can access the permissions management section.</td>
+                    <td>Inventory movements must be recorded in real-time for accuracy.</td>
                 </tr>
                 <tr>
                     <td><strong>Technology and Data</strong></td>
-                    <td>System database with role-based access control capabilities.</td>
+                    <td>Real-time inventory management system.<br>Role-based access control for authorization.</td>
+                    
                 </tr>
                 <tr>
                     <td><strong>Frequency</strong></td>
-                    <td>As needed, typically when new roles or access changes are required.</td>
+                    <td>As needed, typically for stock replenishment, redistribution, or inter-store adjustments.
+                    </td>
                 </tr>
                 <tr>
                     <td><strong>Assumptions</strong></td>
-                    <td>Admin has sufficient understanding of roles and permissions within the organization.</td>
+                    <td>Destination location is prepared to receive and confirm receipt of transferred inventory.
+                    </td>
                 </tr>
                 <tr>
                     <td><strong>Notes / Open Issues</strong></td>
-                    <td>Determine if permissions should be grouped or tiered by department or function for scalability.</td>
+                    <td>Determine if a reconciliation process is needed when items arrive at the destination for additional verification.
+                    </td>
                 </tr>
             </table>
         </div>
