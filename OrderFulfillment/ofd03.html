@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Case: Location Inventory Management (View Inventory)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .use-case-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .flow-header {
+            background-color: #b22222;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .priority-high {
+            color: #b22222;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            td, th {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="use-case-container">
+        <header>
+            <h1>USE CASE NARRATIVE</h1>
+            <h2>Order Fulfillment (Delivery Driver Tasks)</h2>
+        </header>
+
+        <div class="section">
+            <table>
+                <tr>
+                    <td><strong>Use Case ID</strong></td>
+                    <td>OFD-03</td>
+                    <td><strong>Version</strong></td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td><strong>Use Case Name</strong></td>
+                    <td>Delivery Driver Tasks</td>
+                    <td><strong>Date</strong></td>
+                    <td>2024-11-02</td>
+                </tr>
+                <tr>
+                    <td><strong>Author</strong></td>
+                    <td>Tony Power</td>
+                    <td><strong>Complexity</strong></td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td><strong>Priority</strong></td>
+                    <td colspan="3" class="priority-high">High</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="checkbox-container">
+                <strong>Use Case Type:</strong><br>
+                ☒ Business Requirement<br>
+                ☐ System Analysis
+            </div>
+
+            <table>
+                <tr>
+                    <td><strong>Source</strong></td>
+                    <td>Business Requirement</td>
+                </tr>
+                <tr>
+                    <td><strong>Primary Actor</strong></td>
+                    <td>Delivery Driver</td>
+                </tr>
+                <tr>
+                    <td><strong>Other Actor(s)</strong></td>
+                    <td>Warehouse Worker, Acadia</td>
+                </tr>
+                <tr>
+                    <td><strong>Stakeholders</strong></td>
+                    <td>
+                        <ul>
+                            <li>Warehouse Operations</li>
+                            <li>Store Managers</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Description</strong></td>
+                    <td>This use case covers the tasks involved in receiving, transporting, and delivering store orders to the designated locations.
+
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><strong>Pre Condition(s)</strong></td>
+                    <td>The store order has been fulfilled and is ready for pickup.<br>The delivery driver is assigned to the task.</td>
+                </tr>
+                <tr>
+                    <td><strong>Triggers</strong></td>
+                    <td>Delivery driver receives a notification of an order to be delivered.
+                    </td>
+                </tr>
+                
+                
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+            <table>
+                <tr>
+                    <th>Actor Action</th>
+                    <th>System/Result, Info required</th>
+                </tr>
+                <tr>
+                    <td>1. Delivery Driver receives order details.</td>
+                    <td>System sends a notification with store order details (pickup time, items, destination).</td>
+                </tr>
+                <tr>
+                    <td>2. Delivery Driver arrives at the warehouse.</td>
+                    <td>System verifies the delivery driver identity and order details.</td>
+                </tr>
+                <tr>
+                    <td>3. Delivery Driver picks up the order.</td>
+                    <td>System confirms the order pickup and updates the status to "In Transit."</td>
+                </tr>
+                <tr>
+                    <td>4. Delivery Driver transports the order to the store.</td>
+                    <td>System tracks the order's location during transportation.</td>
+                </tr>
+                <tr>
+                    <td>5. Delivery Driver arrives at the store.</td>
+                    <td>System confirms delivery at destination and updates the order status to "Delivered."</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Alternate Flow</h3>
+            <table>
+                <tr>
+                    <th>Actor Action</th>
+                    <th>System/Result, Info required</th>
+                </tr>
+                <tr>
+                    <td>1. Delivery Driver cannot reach store due to roadblock.</td>
+                    <td>System updates delivery status to "Delayed" and sends notification to both warehouse and store manager.</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>Conclusion</strong></td>
+                    <td>Store order is successfully delivered to the store.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Post Condition(s)</strong></td>
+                    <td>Order is marked as "Delivered" and inventory levels are updated at the store.
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Additional Information</h3>
+            <table>
+                
+                <tr>
+                    <td><strong>Business Rules</strong></td>
+                    <td>
+                        <ul>
+                            <li>Delivery Drivers must confirm the order and their delivery before leaving the Warehouse.</li>
+                            <li>Delivery must occur withing the defined time frame.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Special Requirements</strong></td>
+                    <td>GPS integration to track delivery progress.</td>
+                    
+                </tr>
+                <tr>
+                    <td><strong>Constraints and Specifications</strong></td>
+                    <td>Delivery must be completed by a specific time.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Technology and Data</strong></td>
+                    <td> Integration with delivery tracking systems.</td>
+                    
+                </tr>
+                <tr>
+                    <td><strong>Frequency</strong></td>
+                    <td>As needed based on store orders.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Assumptions</strong></td>
+                    <td>All neccesary delivery documentation and inventory are availabile at the time of pickup.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Notes / Open Issues</strong></td>
+                    <td>None
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

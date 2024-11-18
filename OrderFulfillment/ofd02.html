@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Case: Location Inventory Management (View Inventory)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .use-case-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .flow-header {
+            background-color: #b22222;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .priority-high {
+            color: #b22222;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            td, th {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="use-case-container">
+        <header>
+            <h1>USE CASE NARRATIVE</h1>
+            <h2>Order Fulfillment (Send Store Orders to Warehouse)</h2>
+        </header>
+
+        <div class="section">
+            <table>
+                <tr>
+                    <td><strong>Use Case ID</strong></td>
+                    <td>OFD-02</td>
+                    <td><strong>Version</strong></td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td><strong>Use Case Name</strong></td>
+                    <td>Send Store Orders to Warehouse</td>
+                    <td><strong>Date</strong></td>
+                    <td>2024-11-02</td>
+                </tr>
+                <tr>
+                    <td><strong>Author</strong></td>
+                    <td>Tony Power</td>
+                    <td><strong>Complexity</strong></td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td><strong>Priority</strong></td>
+                    <td colspan="3" class="priority-high">High</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="checkbox-container">
+                <strong>Use Case Type:</strong><br>
+                ☒ Business Requirement<br>
+                ☐ System Analysis
+            </div>
+
+            <table>
+                <tr>
+                    <td><strong>Source</strong></td>
+                    <td>Business Requirement</td>
+                </tr>
+                <tr>
+                    <td><strong>Primary Actor</strong></td>
+                    <td>Warehouse</td>
+                </tr>
+                <tr>
+                    <td><strong>Other Actor(s)</strong></td>
+                    <td>Warehouse Worker</td>
+                </tr>
+                <tr>
+                    <td><strong>Stakeholders</strong></td>
+                    <td>
+                        <ul>
+                            <li>Warehouse Operations</li>
+                            <li>Store Managers</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Description</strong></td>
+                    <td>This use case describes how the warehouse sends processed store orders to the warehouse floor for fulfillment.
+
+
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><strong>Pre Condition(s)</strong></td>
+                    <td>The store order is processed and confirmed.<br>The order is ready for fulfillment.</td>
+                </tr>
+                <tr>
+                    <td><strong>Triggers</strong></td>
+                    <td>The system notifies the warehouse that a store order is ready to be sent to the warehouse floor.</td>
+                </tr>
+                
+                
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+            <table>
+                <tr>
+                    <th>Actor Action</th>
+                    <th>System/Result, Info required</th>
+                </tr>
+                <tr>
+                    <td>1. Warehouse selects the "Send to Warehouse Floor" option.</td>
+                    <td>System displays store order details.</td>
+                </tr>
+                <tr>
+                    <td>2. Warehouse reviews order details and assigns to floor.</td>
+                    <td>System updates the order status to "In Progress" and assigns it to a specific area in the warehouse.</td>
+                </tr>
+                <tr>
+                    <td>3. Warehouse sends a notification to the warehouse floor</td>
+                    <td>The system sends a notification to the warehouse floor with the necessary items and quantities for fulfillment.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Alternate Flow</h3>
+            <table>
+                <tr>
+                    <th>Actor Action</th>
+                    <th>System/Result, Info required</th>
+                </tr>
+                <tr>
+                    <td>1. Warehouse cannot assign items due to unavailable space.</td>
+                    <td>System prompts for an alternate storage location or delays the process until space is available.</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>Conclusion</strong></td>
+                    <td>Store order is assigned to the warehouse floor and ready for fulfillment.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Post Condition(s)</strong></td>
+                    <td>The warehouse floor is notified and the order is now available for workers to pick and prepare for delivery.
+
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="flow-header">Additional Information</h3>
+            <table>
+                
+                <tr>
+                    <td><strong>Business Rules</strong></td>
+                    <td>
+                        <ul>
+                            <li>Only authorized warehouse staff can assign orders to the warehouse floor.</li>
+                            
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Special Requirements</strong></td>
+                    <td>Warehouse management software needs to be integrated with the fulfillment system.</td>
+                    
+                </tr>
+                <tr>
+                    <td><strong>Constraints and Specifications</strong></td>
+                    <td>The system should handle the timely sending of orders to avoid delays in fulfillment.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Technology and Data</strong></td>
+                    <td> Requires integration with the inventory management system.</td>
+                    
+                </tr>
+                <tr>
+                    <td><strong>Frequency</strong></td>
+                    <td>As needed based on store orders.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Assumptions</strong></td>
+                    <td>As needed, depending on store order volume.
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Notes / Open Issues</strong></td>
+                    <td>None
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
