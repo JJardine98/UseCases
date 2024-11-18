@@ -1,270 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Use Case: Location Inventory Management (View Inventory)</title>
     <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+
+      header {
+        background-color: #b22222;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .use-case-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f0f0f0;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .flow-header {
+        background-color: #b22222;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .priority-high {
+        color: #b22222;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f9;
+          padding: 10px;
         }
-
-        header {
-            background-color: #b22222;
-            color: white;
-            padding: 1em;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .use-case-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
+        td,
         th {
-            background-color: #f0f0f0;
+          padding: 8px;
         }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .flow-header {
-            background-color: #b22222;
-            color: white;
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .priority-high {
-            color: #b22222;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            td, th {
-                padding: 8px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="use-case-container">
-        <header>
-            <h1>USE CASE NARRATIVE</h1>
-            <h2>Order Fulfillment (Fulfill Store Order)</h2>
-        </header>
+      <header>
+        <h1>USE CASE NARRATIVE</h1>
+        <h2>Order Fulfillment (Fulfill Store Order)</h2>
+      </header>
 
-        <div class="section">
-            <table>
-                <tr>
-                    <td><strong>Use Case ID</strong></td>
-                    <td>OFD-01</td>
-                    <td><strong>Version</strong></td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td><strong>Use Case Name</strong></td>
-                    <td>Fulfill Store Order</td>
-                    <td><strong>Date</strong></td>
-                    <td>2024-11-02</td>
-                </tr>
-                <tr>
-                    <td><strong>Author</strong></td>
-                    <td>Tony Power</td>
-                    <td><strong>Complexity</strong></td>
-                    <td>Medium</td>
-                </tr>
-                <tr>
-                    <td><strong>Priority</strong></td>
-                    <td colspan="3" class="priority-high">High</td>
-                </tr>
-            </table>
+      <div class="section">
+        <table>
+          <tr>
+            <td><strong>Use Case ID</strong></td>
+            <td>OFD-01</td>
+            <td><strong>Version</strong></td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>Use Case Name</strong></td>
+            <td>Fulfill Store Order</td>
+            <td><strong>Date</strong></td>
+            <td>2024-11-02</td>
+          </tr>
+          <tr>
+            <td><strong>Author</strong></td>
+            <td>Tony Power</td>
+            <td><strong>Complexity</strong></td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td><strong>Priority</strong></td>
+            <td colspan="3" class="priority-high">High</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="checkbox-container">
+          <strong>Use Case Type:</strong><br />
+          ☒ Business Requirement<br />
+          ☐ System Analysis
         </div>
 
-        <div class="section">
-            <div class="checkbox-container">
-                <strong>Use Case Type:</strong><br>
-                ☒ Business Requirement<br>
-                ☐ System Analysis
-            </div>
+        <table>
+          <tr>
+            <td><strong>Source</strong></td>
+            <td>Business Requirement</td>
+          </tr>
+          <tr>
+            <td><strong>Primary Actor</strong></td>
+            <td>Warehouse Worker</td>
+          </tr>
+          <tr>
+            <td><strong>Other Actor(s)</strong></td>
+            <td>Delivery Driver</td>
+          </tr>
+          <tr>
+            <td><strong>Stakeholders</strong></td>
+            <td>
+              <ul>
+                <li>Warehouse Operations</li>
+                <li>Store Managers</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Description</strong></td>
+            <td>
+              This use case describes how a warehouse worker fulfills a store
+              order by preparing items for pickup or delivery.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Pre Condition(s)</strong></td>
+            <td>
+              The store order has been processed and assigned items from
+              available inventory.<br />The warehouse has access to the details
+              of the store order.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Triggers</strong></td>
+            <td>
+              Warehouse worker receives a notification to fulfill an assigned
+              store order.
+            </td>
+          </tr>
+        </table>
+      </div>
 
-            <table>
-                <tr>
-                    <td><strong>Source</strong></td>
-                    <td>Business Requirement</td>
-                </tr>
-                <tr>
-                    <td><strong>Primary Actor</strong></td>
-                    <td>Warehouse Worker</td>
-                </tr>
-                <tr>
-                    <td><strong>Other Actor(s)</strong></td>
-                    <td>Delivery Driver</td>
-                </tr>
-                <tr>
-                    <td><strong>Stakeholders</strong></td>
-                    <td>
-                        <ul>
-                            <li>Warehouse Operations</li>
-                            <li>Store Managers</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Description</strong></td>
-                    <td>This use case describes how a warehouse worker fulfills a store order by preparing items for pickup or delivery.
+      <div class="section">
+        <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+        <table>
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>
+              1. Warehouse Worker selects the "Fulfill Store Order" option.
+            </td>
+            <td>
+              System displays store order details, including items and
+              quantities to be fulfilled.
+            </td>
+          </tr>
+          <tr>
+            <td>2. Warehouse Worker retrieves items from storage.</td>
+            <td>System updates the order status to "In Progress."</td>
+          </tr>
+          <tr>
+            <td>
+              3. Warehouse Worker scans items and packs them for shipment.
+            </td>
+            <td>System updates records and flags any discrepancies.</td>
+          </tr>
+          <tr>
+            <td>
+              4. System confirms items and marks them as packed for shipping.
+            </td>
+            <td>System marks the order as "Ready for Pickup/Delivery</td>
+          </tr>
+        </table>
+      </div>
 
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td><strong>Pre Condition(s)</strong></td>
-                    <td>The store order has been processed and assigned items from available inventory.<br>The warehouse has access to the details of the store order.</td>
-                </tr>
-                <tr>
-                    <td><strong>Triggers</strong></td>
-                    <td>Warehouse worker receives a notification to fulfill an assigned store order.</td>
-                </tr>
-                
-                
-            </table>
-        </div>
+      <div class="section">
+        <h3 class="flow-header">Alternate Flow</h3>
+        <table>
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Warehouse Worker cannot locate an item.</td>
+            <td>
+              System prompts the worker to report a missing item and update the
+              order status to "Pending."
+            </td>
+          </tr>
 
-        <div class="section">
-            <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
-            <table>
-                <tr>
-                    <th>Actor Action</th>
-                    <th>System/Result, Info required</th>
-                </tr>
-                <tr>
-                    <td>1. Warehouse Worker selects the "Fulfill Store Order" option.</td>
-                    <td>System displays store order details, including items and quantities to be fulfilled.</td>
-                </tr>
-                <tr>
-                    <td>2. Warehouse Worker retrieves items from storage.</td>
-                    <td>System updates the order status to "In Progress."</td>
-                </tr>
-                <tr>
-                    <td>3. Warehouse Worker scans items and packs them for shipment.</td>
-                    <td>System updates records and flags any discrepancies.</td>
-                </tr>
-                <tr>
-                    <td>4. System confirms items and marks them as packed for shipping.</td>
-                    <td>System marks the order as "Ready for Pickup/Delivery</td>
-                </tr>
-            </table>
-        </div>
+          <tr>
+            <td><strong>Conclusion</strong></td>
+            <td>The store order is ready for pickup or delivery.</td>
+          </tr>
+          <tr>
+            <td><strong>Post Condition(s)</strong></td>
+            <td>
+              The order is marked as fulfilled and ready for delivery, and the
+              inventory is updated.
+            </td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="section">
-            <h3 class="flow-header">Alternate Flow</h3>
-            <table>
-                <tr>
-                    <th>Actor Action</th>
-                    <th>System/Result, Info required</th>
-                </tr>
-                <tr>
-                    <td>1. Warehouse Worker cannot locate an item.</td>
-                    <td>System prompts the worker to report a missing item and update the order status to "Pending."</td>
-                </tr>
-                
-                <tr>
-                    <td><strong>Conclusion</strong></td>
-                    <td>The store order is ready for pickup or delivery.
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Post Condition(s)</strong></td>
-                    <td>The order is marked as fulfilled and ready for delivery, and the inventory is updated.
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
-
-        <div class="section">
-            <h3 class="flow-header">Additional Information</h3>
-            <table>
-                
-                <tr>
-                    <td><strong>Business Rules</strong></td>
-                    <td>
-                        <ul>
-                            <li> Only authorized warehouse workers can access and fulfill store orders.</li>
-                            
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Special Requirements</strong></td>
-                    <td> Scanners or mobile devices to confirm item retrieval.</td>
-                    
-                </tr>
-                <tr>
-                    <td><strong>Constraints and Specifications</strong></td>
-                    <td>Must be completed by warehouse closing time.</td>
-                </tr>
-                <tr>
-                    <td><strong>Technology and Data</strong></td>
-                    <td> Requires access to inventory management software.</td>
-                    
-                </tr>
-                <tr>
-                    <td><strong>Frequency</strong></td>
-                    <td>As needed based on store orders.
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Assumptions</strong></td>
-                    <td>All ordered items are available for fulfillment.
-
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Notes / Open Issues</strong></td>
-                    <td>None
-                    </td>
-                </tr>
-            </table>
-        </div>
+      <div class="section">
+        <h3 class="flow-header">Additional Information</h3>
+        <table>
+          <tr>
+            <td><strong>Business Rules</strong></td>
+            <td>
+              <ul>
+                <li>
+                  Only authorized warehouse workers can access and fulfill store
+                  orders.
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Special Requirements</strong></td>
+            <td>Scanners or mobile devices to confirm item retrieval.</td>
+          </tr>
+          <tr>
+            <td><strong>Constraints and Specifications</strong></td>
+            <td>Must be completed by warehouse closing time.</td>
+          </tr>
+          <tr>
+            <td><strong>Technology and Data</strong></td>
+            <td>Requires access to inventory management software.</td>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>As needed based on store orders.</td>
+          </tr>
+          <tr>
+            <td><strong>Assumptions</strong></td>
+            <td>All ordered items are available for fulfillment.</td>
+          </tr>
+          <tr>
+            <td><strong>Notes / Open Issues</strong></td>
+            <td>None</td>
+          </tr>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>

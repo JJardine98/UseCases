@@ -1,271 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Use Case: User Management (CRUD Login)</title>
     <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+
+      header {
+        background-color: #b22222;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .use-case-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .gray-bg {
+        background-color: #f0f0f0;
+      }
+
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        padding-left: 0;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .priority-high {
+        color: #e74c3c;
+        font-weight: bold;
+      }
+
+      .complexity-low {
+        color: #27ae60;
+        font-weight: bold;
+      }
+
+      .flow-header {
+        background-color: #b22222;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 20px;
+      }
+
+      .checkbox-container {
+        margin: 10px 0;
+      }
+
+      .flow-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      @media (max-width: 768px) {
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f9;
+          padding: 10px;
         }
 
-        header {
-            background-color: #b22222;
-            color: white;
-            padding: 1em;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        td,
+        th {
+          padding: 8px;
         }
-
-        .use-case-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .gray-bg {
-            background-color: #f0f0f0;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .priority-high {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-
-        .complexity-low {
-            color: #27ae60;
-            font-weight: bold;
-        }
-
-        .flow-header {
-            background-color: #b22222;
-            color: white;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-
-        .checkbox-container {
-            margin: 10px 0;
-        }
-
-        .flow-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            td, th {
-                padding: 8px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="use-case-container">
-        <header>
-            <h1>USE CASE NARRATIVE</h1>
-            <h2>User Management (CRUD Login)</h2>
-        </header>
+      <header>
+        <h1>USE CASE NARRATIVE</h1>
+        <h2>User Management (CRUD Login)</h2>
+      </header>
 
-        <div class="section">
-            <table>
-                <tr>
-                    <td><strong>Use Case ID</strong></td>
-                    <td>UM-04</td>
-                    <td><strong>Version</strong></td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td><strong>Use Case Name</strong></td>
-                    <td>Login (Admin)</td>
-                    <td><strong>Date</strong></td>
-                    <td>2024-11-02</td>
-                </tr>
-                <tr>
-                    <td><strong>Author</strong></td>
-                    <td>Tony Power</td>
-                    <td><strong>Complexity</strong></td>
-                    <td class="complexity-low">Low</td>
-                </tr>
-                <tr>
-                    <td><strong>Priority</strong></td>
-                    <td colspan="3" class="priority-high">High</td>
-                </tr>
-            </table>
+      <div class="section">
+        <table>
+          <tr>
+            <td><strong>Use Case ID</strong></td>
+            <td>UM-04</td>
+            <td><strong>Version</strong></td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>Use Case Name</strong></td>
+            <td>Login (Admin)</td>
+            <td><strong>Date</strong></td>
+            <td>2024-11-02</td>
+          </tr>
+          <tr>
+            <td><strong>Author</strong></td>
+            <td>Tony Power</td>
+            <td><strong>Complexity</strong></td>
+            <td class="complexity-low">Low</td>
+          </tr>
+          <tr>
+            <td><strong>Priority</strong></td>
+            <td colspan="3" class="priority-high">High</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="checkbox-container">
+          <strong>Use Case Type:</strong><br />
+          ☐ Business Requirement<br />
+          ☒ System Analysis
         </div>
 
-        <div class="section">
-            <div class="checkbox-container">
-                <strong>Use Case Type:</strong><br>
-                ☐ Business Requirement<br>
-                ☒ System Analysis
-            </div>
+        <table>
+          <tr>
+            <td><strong>Source</strong></td>
+            <td>Business Requirement</td>
+          </tr>
+          <tr>
+            <td><strong>Primary Actor</strong></td>
+            <td>Admin</td>
+          </tr>
+          <tr>
+            <td><strong>Other Actor(s)</strong></td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td><strong>Stakeholders</strong></td>
+            <td>
+              <ul>
+                <li>IT Department</li>
+                <li>Security Team</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Description</strong></td>
+            <td>
+              This use case enables an Admin to log into the system securely,
+              verifying credentials before granting access to system management
+              functions.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Precondition(s)</strong></td>
+            <td>
+              <ul>
+                <li>Admin has valid credentials stored in the system.</li>
+                <li>Login page is accessible.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Trigger(s)</strong></td>
+            <td>
+              Admin accesses the login page to begin an authenticated session.
+            </td>
+          </tr>
+        </table>
+      </div>
 
-            <table>
-                <tr>
-                    <td><strong>Source</strong></td>
-                    <td>Business Requirement</td>
-                </tr>
-                <tr>
-                    <td><strong>Primary Actor</strong></td>
-                    <td>Admin</td>
-                </tr>
-                <tr>
-                    <td><strong>Other Actor(s)</strong></td>
-                    <td>None</td>
-                </tr>
-                <tr>
-                    <td><strong>Stakeholders</strong></td>
-                    <td>
-                        <ul>
-                            <li>IT Department</li>
-                            <li>Security Team</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Description</strong></td>
-                    <td>This use case enables an Admin to log into the system securely, verifying credentials before granting access to system management functions.</td>
-                </tr>
-                <tr>
-                    <td><strong>Precondition(s)</strong></td>
-                    <td>
-                        <ul>
-                            <li>Admin has valid credentials stored in the system.</li>
-                            <li>Login page is accessible.</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Trigger(s)</strong></td>
-                    <td>Admin accesses the login page to begin an authenticated session.</td>
-                </tr>
-                
-            </table>
-        </div>
+      <div class="section">
+        <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+        <table class="flow-table">
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Admin enters username and password</td>
+            <td>1. System verifies credentials</td>
+          </tr>
+          <tr>
+            <td>2. Admin clicks "Login"</td>
+            <td>2. System authenticates login, granting or denying access</td>
+          </tr>
+          <tr>
+            <td>3. If credentials are valid</td>
+            <td>3. System grants access, Admin redirected to the dashboard</td>
+          </tr>
+          <tr>
+            <td>4. If credentials are invalid</td>
+            <td>
+              4. System displays error message and requests re-entry of
+              credentials
+            </td>
+          </tr>
+        </table>
 
-        <div class="section">
-            <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
-            <table class="flow-table">
-                <tr>
-                    <th>Actor Action</th>
-                    <th>System/Result, Info required</th>
-                </tr>
-                <tr>
-                    <td>1. Admin enters username and password</td>
-                    <td>1. System verifies credentials</td>
-                </tr>
-                <tr>
-                    <td>2. Admin clicks "Login"</td>
-                    <td>2. System authenticates login, granting or denying access</td>
-                </tr>
-                <tr>
-                    <td>3. If credentials are valid</td>
-                    <td>3. System grants access, Admin redirected to the dashboard</td>
-                </tr>
-                <tr>
-                    <td>4. If credentials are invalid</td>
-                    <td>4. System displays error message and requests re-entry of credentials</td>
-                </tr>
-            </table>
+        <h3 class="flow-header">Alternate Flow</h3>
+        <table class="flow-table">
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Admin forgets password and selects "Forgot Password"</td>
+            <td>1. System prompts for email to send reset link</td>
+          </tr>
+          <tr>
+            <td><strong>Conclusion</strong></td>
+            <td>
+              Admin is successfully authenticated and can now access system
+              management functions if credentials are valid.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Post condition</strong></td>
+            <td>
+              An authenticated session is established, allowing Admin access to
+              restricted system areas.
+            </td>
+          </tr>
+        </table>
+      </div>
 
-            <h3 class="flow-header">Alternate Flow</h3>
-            <table class="flow-table">
-                <tr>
-                    <th>Actor Action</th>
-                    <th>System/Result, Info required</th>
-                </tr>
-                <tr>
-                    <td>1. Admin forgets password and selects "Forgot Password"</td>
-                    <td>1. System prompts for email to send reset link</td>
-                </tr>
-                <tr>
-                    <td><strong>Conclusion</strong></td>
-                    <td>Admin is successfully authenticated and can now access system management functions if credentials are valid.</td>
-                </tr>
-                <tr>
-                    <td><strong>Post condition</strong></td>
-                    <td>An authenticated session is established, allowing Admin access to restricted system areas.</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section">
-            <h3 class="flow-header">Additional Information</h3>
-            <table>
-                
-                <tr>
-                    <td><strong>Business Rules</strong></td>
-                    <td>
-                        <ul>
-                            <li>Admin passwords must meet security requirements (e.g., length, complexity).</li>
-                            <li>Failed login attempts should be limited to prevent unauthorized access.</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Special Requirements</strong></td>
-                    <td>System should use encryption for password storage and transmission.</td>
-                </tr>
-                <tr>
-                    <td><strong>Constraints and Specifications</strong></td>
-                    <td>Multi-factor authentication may be required for additional security.</td>
-                </tr>
-                <tr>
-                    <td><strong>Technology and Data</strong></td>
-                    <td>User database with encrypted credentials; authentication protocols.</td>
-                </tr>
-                <tr>
-                    <td><strong>Frequency</strong></td>
-                    <td>Daily or as required by the Admin.</td>
-                </tr>
-                <tr>
-                    <td><strong>Assumptions</strong></td>
-                    <td>Admin possesses the necessary credentials and is authorized for system access.</td>
-                </tr>
-                <tr>
-                    <td><strong>Notes / Open Issues</strong></td>
-                    <td>Consider implementing an account lockout mechanism after a specified number of failed attempts.</td>
-                </tr>
-            </table>
-        </div>
+      <div class="section">
+        <h3 class="flow-header">Additional Information</h3>
+        <table>
+          <tr>
+            <td><strong>Business Rules</strong></td>
+            <td>
+              <ul>
+                <li>
+                  Admin passwords must meet security requirements (e.g., length,
+                  complexity).
+                </li>
+                <li>
+                  Failed login attempts should be limited to prevent
+                  unauthorized access.
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Special Requirements</strong></td>
+            <td>
+              System should use encryption for password storage and
+              transmission.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Constraints and Specifications</strong></td>
+            <td>
+              Multi-factor authentication may be required for additional
+              security.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Technology and Data</strong></td>
+            <td>
+              User database with encrypted credentials; authentication
+              protocols.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>Daily or as required by the Admin.</td>
+          </tr>
+          <tr>
+            <td><strong>Assumptions</strong></td>
+            <td>
+              Admin possesses the necessary credentials and is authorized for
+              system access.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Notes / Open Issues</strong></td>
+            <td>
+              Consider implementing an account lockout mechanism after a
+              specified number of failed attempts.
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>
