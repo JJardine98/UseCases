@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Use Case: Supplier and Backorder Management (Receive Supplier Order)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+      header {
+        background-color: #b22222;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .use-case-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #f0f0f0;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .flow-header {
+        background-color: #b22222;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .priority-high {
+        color: #b22222;
+        font-weight: bold;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+        td, th {
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="use-case-container">
+      <header>
+        <h1>USE CASE NARRATIVE</h1>
+        <h2>Supplier and Backorder Management (Receive Supplier Order)</h2>
+      </header>
+
+      <div class="section">
+        <table>
+          <tr>
+            <td><strong>Use Case ID</strong></td>
+            <td>SBM-03</td>
+            <td><strong>Version</strong></td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>Use Case Name</strong></td>
+            <td>Receive Supplier Order</td>
+            <td><strong>Date</strong></td>
+            <td>2024-11-02</td>
+          </tr>
+          <tr>
+            <td><strong>Author</strong></td>
+            <td>Tony Power</td>
+            <td><strong>Complexity</strong></td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td><strong>Priority</strong></td>
+            <td colspan="3" class="priority-high">High</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <table>
+          <tr>
+            <td><strong>Source</strong></td>
+            <td>Business Requirement</td>
+          </tr>
+          <tr>
+            <td><strong>Primary Actor</strong></td>
+            <td>Warehouse Manager</td>
+          </tr>
+          <tr>
+            <td><strong>Other Actor(s)</strong></td>
+            <td>Supplier, Admin</td>
+          </tr>
+          <tr>
+            <td><strong>Stakeholders</strong></td>
+            <td>
+              <ul>
+                <li>Procurement</li>
+                <li>Finance</li>
+                <li>Inventory Management</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Description</strong></td>
+            <td>This use case describes how a warehouse manager receives and processes a supplier order to update inventory levels.</td>
+          </tr>
+          <tr>
+            <td><strong>Pre Condition(s)</strong></td>
+            <td>The supplier order must be confirmed and available in the system.</td>
+          </tr>
+          <tr>
+            <td><strong>Triggers</strong></td>
+            <td>The warehouse manager receives the supplier order notification.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+        <table>
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Warehouse Manager selects "Receive Order".</td>
+            <td>System displays order details and prompts for confirmation.</td>
+          </tr>
+          <tr>
+            <td>2. Warehouse Manager confirms receipt of the order.</td>
+            <td>System updates inventory levels and order status.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Conclusion</h3>
+        <table>
+          <tr>
+            <td>The supplier order is successfully received, and inventory is updated accordingly.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
