@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Use Case: Location Inventory Management (View Inventory)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+
+      header {
+        background-color: #b22222;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .use-case-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f0f0f0;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .flow-header {
+        background-color: #b22222;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .priority-high {
+        color: #b22222;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+        td,
+        th {
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="use-case-container">
+      <header>
+        <h1>USE CASE NARRATIVE</h1>
+        <h2>Returns & Loss Management (Process Loss)</h2>
+      </header>
+
+      <div class="section">
+        <table>
+          <tr>
+            <td><strong>Use Case ID</strong></td>
+            <td>PL-01</td>
+            <td><strong>Version</strong></td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>Use Case Name</strong></td>
+            <td>Process Loss</td>
+            <td><strong>Date</strong></td>
+            <td>2024-11-02</td>
+          </tr>
+          <tr>
+            <td><strong>Author</strong></td>
+            <td>Tony Power</td>
+            <td><strong>Complexity</strong></td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td><strong>Priority</strong></td>
+            <td colspan="3" class="priority-high">High</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="checkbox-container">
+          <strong>Use Case Type:</strong><br />
+          ☒ Business Requirement<br />
+          ☐ System Analysis
+        </div>
+
+        <table>
+          <tr>
+            <td><strong>Source</strong></td>
+            <td>Business Requirement</td>
+          </tr>
+          <tr>
+            <td><strong>Primary Actor</strong></td>
+            <td>Warehouse</td>
+          </tr>
+          <tr>
+            <td><strong>Other Actor(s)</strong></td>
+            <td>Store Manager</td>
+          </tr>
+          <tr>
+            <td><strong>Stakeholders</strong></td>
+            <td>
+              <ul>
+                <li>Store Operations</li>
+                <li>Inventory Management</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Description</strong></td>
+            <td>
+                This use case involves logging inventory losses, such as damages or disposals, to keep accurate records of stock levels.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Pre Condition(s)</strong></td>
+            <td>
+              The items in question are identified as lost or damaged.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Triggers</strong></td>
+            <td>
+              An inventory check or incident identifies loss or damage to items.
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+        <table>
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>
+              1. Warehouse selects "Process Loss" option.
+            </td>
+            <td>
+              System prompts for Item Details (e.g., item ID, quantity)
+            </td>
+          </tr>
+          <tr>
+            <td>2. Warehouse enters item details and reason for loss</td>
+            <td>System logs the loss and adjusts inventory levels accordingly.</td>
+          </tr>
+          <tr>
+            <td>
+              3. Warehouse submits the loss entry.
+            </td>
+            <td>System updates record and generates a confirmation.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Alternate Flow</h3>
+        <table>
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Item details are missing or incorrect.</td>
+            <td>
+              System prompts for corrections before proceeding.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Conclusion</strong></td>
+            <td>Inventory loss is recorded, stock levels are adjusted.</td>
+          </tr>
+          <tr>
+            <td><strong>Post Condition(s)</strong></td>
+            <td>
+                Inventory levels reflect the loss, and records are updated with the reason and quantity lost.
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Additional Information</h3>
+        <table>
+          <tr>
+            <td><strong>Business Rules</strong></td>
+            <td>
+              <ul>
+                <li>
+                    Losses must be recorded promptly for accurate inventory.
+
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Special Requirements</strong></td>
+            <td>System must track all losses for periodic reports.</td>
+          </tr>
+          <tr>
+            <td><strong>Constraints and Specifications</strong></td>
+            <td>Loss entries must include a reason for record-keeping purposes.</td>
+          </tr>
+          <tr>
+            <td><strong>Technology and Data</strong></td>
+            <td>Integration with inventory management system.</td>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>As needed based on loss events.</td>
+          </tr>
+          <tr>
+            <td><strong>Assumptions</strong></td>
+            <td>Losses are accurately reported by warehouse and store staff.</td>
+          </tr>
+          <tr>
+            <td><strong>Notes / Open Issues</strong></td>
+            <td>None</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
