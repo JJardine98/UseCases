@@ -108,6 +108,14 @@
       </div>
 
       <div class="section">
+        <div class="checkbox-container">
+          <strong>Use Case Type:</strong><br />
+          ☒ Business Requirement<br />
+          ☐ System Analysis
+        </div>
+
+
+      <div class="section">
         <table>
           <tr>
             <td><strong>Source</strong></td>
@@ -115,33 +123,32 @@
           </tr>
           <tr>
             <td><strong>Primary Actor</strong></td>
-            <td>Warehouse Manager</td>
+            <td>Warehouse Worker</td>
           </tr>
           <tr>
             <td><strong>Other Actor(s)</strong></td>
-            <td>Supplier, Admin</td>
+            <td>Warehouse Manager, Admin</td>
           </tr>
           <tr>
             <td><strong>Stakeholders</strong></td>
             <td>
               <ul>
                 <li>Procurement</li>
-                <li>Finance</li>
                 <li>Inventory Management</li>
               </ul>
             </td>
           </tr>
           <tr>
             <td><strong>Description</strong></td>
-            <td>This use case describes how a warehouse manager receives and processes a supplier order to update inventory levels.</td>
+            <td>This use case describes the process of receiving a supplier order in the warehouse. Upon delivery, the warehouse worker inspects the items, records received quantities in the system, and updates inventory. This step is essential for maintaining accurate stock levels and confirming the supplier’s fulfillment..</td>
           </tr>
           <tr>
             <td><strong>Pre Condition(s)</strong></td>
-            <td>The supplier order must be confirmed and available in the system.</td>
+            <td>A supplier order has been submitted and approved.<br>The system has a record of the expected items and quantities in the order.</td>
           </tr>
           <tr>
             <td><strong>Triggers</strong></td>
-            <td>The warehouse manager receives the supplier order notification.</td>
+            <td>Delivery of the order by the supplier.</td>
           </tr>
         </table>
       </div>
@@ -154,21 +161,115 @@
             <th>System/Result, Info required</th>
           </tr>
           <tr>
-            <td>1. Warehouse Manager selects "Receive Order".</td>
-            <td>System displays order details and prompts for confirmation.</td>
+            <td>1. Warehouse Worker selects "Receive Supplier Order"</td>
+            <td>System displays the list of available orders.</td>
           </tr>
           <tr>
-            <td>2. Warehouse Manager confirms receipt of the order.</td>
-            <td>System updates inventory levels and order status.</td>
+            <td>2. Worker selects the appropriate order</td>
+            <td>System displays the selected order details.</td>
+          </tr>
+          <tr>
+            <td>3. Worker inspects and confirms item quantities.</td>
+            <td>System records the received quantities in the system.</td>
+            </tr>
+            <tr>
+              <td>4. Worker enters any missing or damaged items.</td>
+              <td>System updates the order status to "In Progress" if necessary.</td>
+              </tr>
+              <tr>
+                <td>5. Worker confirms receipt of order.</td>
+                <td>System updates the order status to "Received" and records the delivery date.</td>
+                </tr>
+                <tr>
+                  <td>6. System generates receipt confirmation.</td>
+                  <td>System sends a receipt confirmation to the supplier.</td>
+                  </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Alternate Flow</h3>
+        <table>
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Warehouse Worker identifies missing items.</td>
+            <td>
+              System prompts for adjustment notes and reports to manager.
+            </td>
+          </tr>
+          <tr>
+            <td>1. Worker identifies damaged items and notifies procurement.</td>
+            <td>
+              System flags items as unusable.
+            </td>
+          </tr>
+          <tr>
+            <td>3. Order is incomplete due to missing items.</td>
+            <td>
+              System keeps the order orpen, awaiting completion.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Conclusion</strong></td>
+            <td>The supplier order is successfully received, inspected, and processed, updating inventory accordingly.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Post Condition(s)</strong></td>
+            <td>
+              The system reflects the updated inventory levels, including any discrepancies, and notifies relevant departments if issues are noted.
+            </td>
           </tr>
         </table>
       </div>
 
       <div class="section">
-        <h3 class="flow-header">Conclusion</h3>
+        <h3 class="flow-header">Additional Information</h3>
         <table>
           <tr>
-            <td>The supplier order is successfully received, and inventory is updated accordingly.</td>
+            <td><strong>Business Rules</strong></td>
+            <td>
+              <ul>
+                <li>
+                  All items must be inspected and logged on delivery.
+                </li>
+                <li>
+                  Any discrepancies (e.g., damaged or missing items) must be reported immediately.
+                </li>
+                <li>
+                  Only authorized personnel can confirm order receipt. Quantity limits may apply based on financial or storage constraints.
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Special Requirements</strong></td>
+            <td>Real-time inventory updates upon receipt to synchronize across locations.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Constraints and Specifications</strong></td>
+            <td>Orders with high-value items may require additional security checks.</td>
+          </tr>
+          <tr>
+            <td><strong>Technology and Data</strong></td>
+            <td>Integrated barcode scanning for efficient item logging, secure data transmission for inventory updates.</td>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>Typically, as needed when new supplier orders are delivered.</td>
+          </tr>
+          <tr>
+            <td><strong>Assumptions</strong></td>
+            <td>Supplier deliveries match the expected order details unless otherwise noted by warehouse staff.</td>
+          </tr>
+          <tr>
+            <td><strong>Notes / Open Issues</strong></td>
+            <td>Clarify if partial order receipts should automatically generate a follow-up order with the supplier.</td>
           </tr>
         </table>
       </div>

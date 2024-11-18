@@ -1,151 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Use Case Glossary</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        background-color: #b22222;
-        color: white;
-        text-align: center;
-        padding: 1em 0;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Use Case Glossary</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #b22222;
+      color: white;
+      text-align: center;
+      padding: 1.5em 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    nav {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      display: inline-block;
+    }
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    /* Section styling */
+    section {
+      margin: 20px auto;
+      max-width: 1100px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #b22222;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+    .use-case-item {
+      margin-bottom: 15px;
+    }
+    a {
+      display: block;
+      padding: 15px;
+      background-color: #b22222;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    a:hover {
+      background-color: #8b0000;
+      transform: scale(1.05);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      nav a {
+        padding: 12px 18px;
+        font-size: 1.1em;
       }
       section {
-        margin: 20px;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin: 15px;
       }
       h2 {
-        color: #b22222;
-        margin-bottom: 20px;
+        font-size: 1.6em;
       }
-      .use-case-item {
-        margin-bottom: 15px;
-      }
-      a {
-        display: block;
-        padding: 10px;
-        background-color: #b22222;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-      }
-      a:hover {
-        background-color: #8b0000;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Use Case Glossary</h1>
-    </header>
-    <section>
-      <h2>User Management</h2>
-      <div class="use-case-item">
-        <a href="./UserManagement/um01.html">UM-01 - CRUD Employees</a>
-      </div>
-      <div class="use-case-item">
-        <a href="./UserManagement/um02.html">UM-02 - CRUD Permissions</a>
-      </div>
-      <div class="use-case-item">
-        <a href="./UserManagement/um03.html"
-          >UM-03 - CRUD Employee Permissions</a
-        >
-      </div>
-      <div class="use-case-item">
-        <a href="./UserManagement/um04.html">UM-04 - CRUD Login Admin</a>
-      </div>
+    }
 
-      <h2>Location & Inventory Management</h2>
-      <div class="use-case-item">
-        <a href="./LocationInventoryManagement/lm01.html"
-          >LIM-01 - CRUD Locations</a
-        >
-      </div>
-      <div class="use-case-item">
-        <a href="./LocationInventoryManagement/lm02.html"
-          >LIM-02 - View Inventory</a
-        >
-      </div>
-      <div class="use-case-item">
-        <a href="./LocationInventoryManagement/lm03.html"
-          >LIM-03 - Edit Inventory</a
-        >
-      </div>
-      <div class="use-case-item">
-        <a href="./LocationInventoryManagement/lm04.html"
-          >LIM-04 - Move Inventory</a
-        >
-      </div>
-      <div class="use-case-item">
-        <a href="./LocationInventoryManagement/lm05.html"
-          >LIM-05 - Perform Inventory</a
-        >
-      </div>
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Use Case Glossary</h1>
+    <p>Explore and navigate the use cases of the Bullseye Retail System</p>
+  </header>
 
-      <h2>Order Fulfillment</h2>
-      <div class="use-case-item">
-        <a href="./OrderFulfillment/ofd01.html">OFD-01 - Fulfill Store Order</a>
-      </div>
-      <div class="use-case-item">
-        <a href="./OrderFulfillment/ofd02.html"
-          >OFD-02 - Send Store Orders to Warehouse</a
-        >
-      </div>
-      <div class="use-case-item">
-        <a href="./OrderFulfillment/ofd03.html"
-          >OFD-03 - Delivery Driver Tasks</a
-        >
-      </div>
+  
 
-      <h2>Return / Losses Management</h2>
-      <div class="use-case-item">
-        <a href="./ReturnsLosses/rnl01.html"
-          >RNL-01 - Process Loss</a
-        >
-      </div>
-      <div class="use-case-item">
-        <a href="./ReturnsLosses/rnl02.html"
-          >RNL-02 - Process Return</a
-        >
-      </div>
+  <!-- User Management Section -->
+  <section id="user-management">
+    <h2>User Management</h2>
+    <div class="use-case-item">
+      <a href="./UserManagement/um01.html">UM-01 - CRUD Employees</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./UserManagement/um02.html">UM-02 - CRUD Permissions</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./UserManagement/um03.html">UM-03 - CRUD Employee Permissions</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./UserManagement/um04.html">UM-04 - CRUD Login Admin</a>
+    </div>
+  </section>
 
-      <h2>Reports & Analytics</h2>
-      <div class="use-case-item">
-        <a href="./ReportsAnalytics/pl01.html" >PL-01 - Store & Inventory Reports</a>
-        </div>
+  <!-- Location & Inventory Management Section -->
+  <section id="location-inventory-management">
+    <h2>Location & Inventory Management</h2>
+    <div class="use-case-item">
+      <a href="./LocationInventoryManagement/lm01.html">LIM-01 - CRUD Locations</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./LocationInventoryManagement/lm02.html">LIM-02 - View Inventory</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./LocationInventoryManagement/lm03.html">LIM-03 - Edit Inventory</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./LocationInventoryManagement/lm04.html">LIM-04 - Move Inventory</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./LocationInventoryManagement/lm05.html">LIM-05 - Perform Inventory</a>
+    </div>
+  </section>
 
-        <h2>Supplier & Backorder Management</h2>
-        <div class="use-case-item">
-          <a href="./SupplierBackorders/sbm01.html">SBM-01 - Receive Supplier Order</a>
-          </div>
-          <div class="use-case-item">
-            <a href="./SupplierBackorders/sbm02.html">SBM-02 - Add Items to Backorder</a>
-            </div>
-            <div class="use-case-item">
-              <a href="./SupplierBackorders/sbm03.html">SBM-03 - Receive Supplier Order</a>
-              </div>
-              <div class="use-case-item">
-                <a href="./SupplierBackorders/sbm04.html">SBM-04 - View Backorders</a>
-                </div>
-                <div class="use-case-item">
-                  <a href="./SupplierBackorders/sbm05.html">SBM-05 - Add Items to Backorder</a>
-                  </div>
-                  <div class="use-case-item">
-                    <a href="./SupplierBackorders/sbm06.html">SBM-06 - Receive Supplier Order</a>
-                    </div>
-                    
-      <!-- Add more use case items as needed -->
-    </section>
-  </body>
+  <!-- Order Fulfillment Section -->
+  <section id="order-fulfillment">
+    <h2>Order Fulfillment</h2>
+    <div class="use-case-item">
+      <a href="./OrderFulfillment/ofd01.html">OFD-01 - Fulfill Store Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./OrderFulfillment/ofd02.html">OFD-02 - Send Store Orders to Warehouse</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./OrderFulfillment/ofd03.html">OFD-03 - Delivery Driver Tasks</a>
+    </div>
+  </section>
+
+  <!-- Return / Losses Management Section -->
+  <section id="return-losses">
+    <h2>Return / Losses Management</h2>
+    <div class="use-case-item">
+      <a href="./ReturnsLosses/rnl01.html">RNL-01 - Process Loss</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./ReturnsLosses/rnl02.html">RNL-02 - Process Return</a>
+    </div>
+  </section>
+
+  <!-- Reports & Analytics Section -->
+  <section id="reports-analytics">
+    <h2>Reports & Analytics</h2>
+    <div class="use-case-item">
+      <a href="./ReportsAnalytics/pl01.html">PL-01 - Store & Inventory Reports</a>
+    </div>
+  </section>
+
+  <!-- Supplier & Backorder Management Section -->
+  <section id="supplier-backorders">
+    <h2>Supplier & Backorder Management</h2>
+    <div class="use-case-item">
+      <a href="./SupplierBackorders/sbm01.html">SBM-01 - Receive Supplier Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./SupplierBackorders/sbm02.html">SBM-02 - Add Items to Backorder</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./SupplierBackorders/sbm03.html">SBM-03 - Receive Supplier Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./SupplierBackorders/sbm04.html">SBM-04 - View Backorders</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./SupplierBackorders/sbm05.html">SBM-05 - Add Items to Backorder</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./SupplierBackorders/sbm06.html">SBM-06 - Receive Supplier Order</a>
+    </div>
+  </section>
+
+  <!-- Order Management Section -->
+  <section id="order-management">
+    <h2>Order Management</h2>
+    <div class="use-case-item">
+      <a href="./OrderManagement/om01.html">OM-01 - Create Store Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./OrderManagement/om02.html">OM-02 - Create Emergency Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./OrderManagement/om03.html">OM-03 - Receive Store Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./OrderManagement/om04.html">OM-04 - Process Store Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./OrderManagement/om05.html">OM-05 - Process Emergency Order</a>
+    </div>
+    <div class="use-case-item">
+      <a href="./OrderManagement/om06.html">OM-06 - Divvy Stock Among Store Orders</a>
+    </div>
+  </section>
+
+  
+  
+</body>
 </html>

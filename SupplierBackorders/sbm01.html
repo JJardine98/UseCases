@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Use Case: Supplier and Backorder Management (Receive Supplier Order)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+      header {
+        background-color: #b22222;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .use-case-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #f0f0f0;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .flow-header {
+        background-color: #b22222;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .priority-high {
+        color: #b22222;
+        font-weight: bold;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+        td, th {
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="use-case-container">
+      <header>
+        <h1>USE CASE NARRATIVE</h1>
+        <h2>Supplier and Backorder Management (CRUD Suppliers)</h2>
+      </header>
+
+      <div class="section">
+        <table>
+          <tr>
+            <td><strong>Use Case ID</strong></td>
+            <td>SBM-01</td>
+            <td><strong>Version</strong></td>
+            <td>1.0</td>
+          </tr>
+          <tr>
+            <td><strong>Use Case Name</strong></td>
+            <td>CRUD Suppliers</td>
+            <td><strong>Date</strong></td>
+            <td>2024-11-02</td>
+          </tr>
+          <tr>
+            <td><strong>Author</strong></td>
+            <td>Tony Power</td>
+            <td><strong>Complexity</strong></td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td><strong>Priority</strong></td>
+            <td colspan="3" class="priority-high">High</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="checkbox-container">
+          <strong>Use Case Type:</strong><br />
+          ☒ Business Requirement<br />
+          ☐ System Analysis
+        </div>
+
+
+      <div class="section">
+        <table>
+          <tr>
+            <td><strong>Source</strong></td>
+            <td>Business Requirement</td>
+          </tr>
+          <tr>
+            <td><strong>Primary Actor</strong></td>
+            <td>Admin</td>
+          </tr>
+          <tr>
+            <td><strong>Other Actor(s)</strong></td>
+            <td>Warehouse Manager</td>
+          </tr>
+          <tr>
+            <td><strong>Stakeholders</strong></td>
+            <td>
+              <ul>
+                <li>Procurement</li>
+                <li>Finance</li>
+                <li>Warehouse</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Description</strong></td>
+            <td>This use case allows administrators to create, read, update, and delete supplier records in the system. This functionality provides the essential tools to manage supplier information accurately, including contact details, payment terms, and supply history.</td>
+          </tr>
+          <tr>
+            <td><strong>Pre Condition(s)</strong></td>
+            <td>User must have administrator-level permissions to access supplier management functions.<br>Supplier data must be available or provided for entry (when creating new records).</td>
+          </tr>
+          <tr>
+            <td><strong>Triggers</strong></td>
+            <td>Admin selects "Manage Suppliers" to add, view, modify, or remove supplier records.
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
+        <table>
+            <tr>
+                <th>Actor Action</th>
+                <th>System/Result, Info required</th>
+              </tr>
+              <tr>
+                <td>1. Admin selects "Create Supplier"</td>
+                <td>System displays form to enter supplier details.</td>
+              </tr>
+              <tr>
+                <td>2. Admin fills in supplier details</td>
+                <td>System validates input and saves the new supplier.</td>
+              </tr>
+              <tr>
+                <td>3. Admin selects a supplier to view</td>
+                <td>System displays the full supplier record.</td>
+              </tr>
+              <tr>
+                <td>4. Admin chooses "Edit Supplier"</td>
+                <td>System allows updates to supplier information.</td>
+              </tr>
+              <tr>
+                <td>5. Admin saves changes</td>
+                <td>System updates and confirms record modification.</td>
+              </tr>
+              <tr>
+                <td>6. Admin selects "Delete Supplier"</td>
+                <td>System prompts for confirmation before deletion.</td>
+              </tr>
+              <tr>
+                <td>7. Admin confirms deletion</td>
+                <td>System removes the supplier record permanently.</td>
+              </tr>
+              
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Alternate Flow</h3>
+        <table>
+          <tr>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Admin cancels supplier creation</td>
+            <td>System discards entered data and exits to the main menu.</td>
+          </tr>
+          <tr>
+            <td>2. System encounters input errors</td>
+            <td>System displays error messages for correction.</td>
+          </tr>
+          <tr>
+            <td>3. Admin cancels supplier deletion</td>
+            <td>System maintains the record and exits to the main menu.</td>
+          </tr>
+          
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 class="flow-header">Additional Information</h3>
+        <table>
+            <tr>
+                <td><strong>Business Rules</strong></td>
+                <td>
+                  <ul>
+                    <li>
+                      All items must be inspected and logged on delivery.
+                    </li>
+                    <li>
+                      Any discrepancies (e.g., damaged or missing items) must be reported immediately.
+                    </li>
+                    <li>
+                      Only authorized personnel can confirm order receipt. Quantity limits may apply based on financial or storage constraints.
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Special Requirements</strong></td>
+                <td>Real-time inventory updates upon receipt to synchronize across locations.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Constraints and Specifications</strong></td>
+                <td>Orders with high-value items may require additional security checks.</td>
+              </tr>
+              <tr>
+                <td><strong>Technology and Data</strong></td>
+                <td>Integrated barcode scanning for efficient item logging, secure data transmission for inventory updates.</td>
+              </tr>
+              <tr>
+                <td><strong>Frequency</strong></td>
+                <td>Typically, as needed when new supplier orders are delivered.</td>
+              </tr>
+              <tr>
+                <td><strong>Assumptions</strong></td>
+                <td>Supplier deliveries match the expected order details unless otherwise noted by warehouse staff.</td>
+              </tr>
+              <tr>
+                <td><strong>Notes / Open Issues</strong></td>
+                <td>Clarify if partial order receipts should automatically generate a follow-up order with the supplier.</td>
+              </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

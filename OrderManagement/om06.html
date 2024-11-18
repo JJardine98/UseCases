@@ -77,20 +77,20 @@
     <div class="use-case-container">
         <header>
           <h1>USE CASE NARRATIVE</h1>
-          <h2>Supplier and Backorder Management (Assign Backorder to Store Order)</h2>
+          <h2>Order Management (Divvy Stock Among Store Orders)</h2>
         </header>
       
         <div class="section">
           <table>
             <tr>
               <td><strong>Use Case ID</strong></td>
-              <td>SBM-06</td>
+              <td>OM-05</td>
               <td><strong>Version</strong></td>
               <td>1.0</td>
             </tr>
             <tr>
               <td><strong>Use Case Name</strong></td>
-              <td>Assign Backorder to Store Order</td>
+              <td>Divvy Stock Among Store Orders</td>
               <td><strong>Date</strong></td>
               <td>2024-11-05</td>
             </tr>
@@ -98,11 +98,11 @@
               <td><strong>Author</strong></td>
               <td>Tony Power</td>
               <td><strong>Complexity</strong></td>
-              <td>Medium</td>
+              <td>High</td>
             </tr>
             <tr>
               <td><strong>Priority</strong></td>
-              <td colspan="3" class="priority-high">High</td>
+              <td colspan="3" class="priority-medium">Medium</td>
             </tr>
           </table>
         </div>
@@ -110,8 +110,8 @@
         <div class="section">
           <div class="checkbox-container">
             <strong>Use Case Type:</strong><br />
-            ☐ Business Requirement<br />
-            ☒ System Analysis
+            ☒ Business Requirement<br />
+            ☐ System Analysis
           </div>
         </div>
       
@@ -119,41 +119,41 @@
           <table>
             <tr>
               <td><strong>Source</strong></td>
-              <td>System Analysis</td>
+              <td>Business Requirement</td>
             </tr>
             <tr>
               <td><strong>Primary Actor</strong></td>
-              <td>Store Manager</td>
+              <td>Warehouse</td>
             </tr>
             <tr>
               <td><strong>Other Actor(s)</strong></td>
-              <td>Warehouse Manager</td>
+              <td>Store Manager</td>
             </tr>
             <tr>
               <td><strong>Stakeholders</strong></td>
               <td>
                 <ul>
-                  <li>Store Operations</li>
-                  <li>Inventory Management</li>
+                  <li>Warehouse Operations</li>
+                  <li>Store Managers</li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><strong>Description</strong></td>
               <td>
-                This use case allows the Warehouse Worker to assign backordered items to specific store orders once the items are received. This action helps ensure that backordered inventory is distributed based on demand.
+                This use case describes how the warehouse allocates limited stock among multiple pending store orders. When stock levels are insufficient to fully meet all store requests, available inventory is divided equitably based on defined rules or priorities.
               </td>
             </tr>
             <tr>
               <td><strong>Pre Condition(s)</strong></td>
               <td>
-                Backordered items have been received and are available for distribution.<br />
-                The store order requesting the items is pending fulfillment.
+                Multiple store orders with overlapping inventory requests exist in the system.<br />
+                The warehouse has limited stock of requested items, necessitating equitable distribution among stores.
               </td>
             </tr>
             <tr>
               <td><strong>Triggers</strong></td>
-              <td>New stock for a backordered item arrives at the warehouse.</td>
+              <td>An item is available in limited quantities and must be divided among multiple pending orders.</td>
             </tr>
           </table>
         </div>
@@ -166,16 +166,20 @@
               <th>System/Result, Info required</th>
             </tr>
             <tr>
-              <td>1) Warehouse Worker selects "Assign Backorder" for the received items</td>
-              <td>System lists store orders that requested backordered items</td>
+              <td>Warehouse selects “Divvy Stock Among Orders” option for an item</td>
+              <td>System lists all active orders requesting the selected item</td>
             </tr>
             <tr>
-              <td>2) Warehouse Worker assigns quantities of received items to relevant store orders</td>
-              <td>System updates order details and logs item allocation</td>
+              <td>Actor reviews pending orders and prioritization criteria (e.g., order date, store needs)</td>
+              <td>System displays order details, quantity requested, and item availability</td>
             </tr>
             <tr>
-              <td>3) Warehouse Worker confirms the assignment</td>
-              <td>System generates confirmation for assigned quantities and updates order status</td>
+              <td>Actor assigns stock quantities to each order based on availability and priorities</td>
+              <td>System updates each store’s order with allocated quantities, adjusting for backorders if needed</td>
+            </tr>
+            <tr>
+              <td>Actor confirms stock distribution</td>
+              <td>System finalizes the updated orders, sending them to fulfillment as appropriate</td>
             </tr>
           </table>
         </div>
@@ -188,20 +192,20 @@
               <th>System/Result, Info required</th>
             </tr>
             <tr>
-              <td>1) Warehouse Worker partially assigns backordered items, leaving some stock unassigned</td>
-              <td>System logs remaining stock as available for new orders or backorders</td>
+              <td>If no inventory is available for an item</td>
+              <td>System notifies actor that all affected orders will be backordered</td>
             </tr>
           </table>
         </div>
       
         <div class="section">
           <h3 class="flow-header">Conclusion</h3>
-          <p>Backordered items are successfully allocated to pending store orders, updating order status and availability.</p>
+          <p>The stock is allocated among store orders based on availability, priority, and order specifics.</p>
         </div>
       
         <div class="section">
           <h3 class="flow-header">Post Condition(s)</h3>
-          <p>The system marks the backordered items as fulfilled for those store orders, updating inventory and order records.</p>
+          <p>Orders are updated to reflect the allocated quantities, and any unfulfilled quantities are marked for backorder.</p>
         </div>
       
         <div class="section">
@@ -211,38 +215,41 @@
               <td><strong>Business Rules</strong></td>
               <td>
                 <ul>
-                  <li>Priority for assigning backordered items should follow business rules (e.g., priority orders first).</li>
-                  <li>Only authorized personnel can assign received stock to backorders.</li>
+                  <li>Orders with older submission dates or specific priority flags are fulfilled first when dividing stock.</li>
+                  <li>Partial quantities allocated to orders must be noted clearly to inform fulfillment and the store.</li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><strong>Special Requirements</strong></td>
-              <td>The system should display prioritized backorders for critical items and emergency orders.</td>
+              <td>
+                <ul>
+                  <li>System must alert stores when their order quantities are adjusted, providing transparency on partial fulfillment.</li>
+                </ul>
+              </td>
             </tr>
             <tr>
               <td><strong>Constraints and Specifications</strong></td>
-              <td>Partial assignments should be permitted, allowing flexibility in distribution.</td>
+              <td>Divvying stock must comply with any store-specific needs or stock minimums.</td>
             </tr>
             <tr>
               <td><strong>Technology and Data</strong></td>
-              <td>Real-time inventory and order status synchronization required.</td>
+              <td>Real-time inventory tracking ensures accurate allocation and minimizes errors in stock availability.</td>
             </tr>
             <tr>
               <td><strong>Frequency</strong></td>
-              <td>Occurs whenever backordered stock is replenished.</td>
+              <td>Stock division occurs regularly when demand exceeds supply for certain items.</td>
             </tr>
             <tr>
               <td><strong>Assumptions</strong></td>
-              <td>Store orders are prioritized based on demand and urgency when assigning backordered items.</td>
+              <td>Inventory is updated and verified before proceeding with stock allocation.</td>
             </tr>
             <tr>
               <td><strong>Notes / Open Issues</strong></td>
-              <td>Consider implementing automated notifications to Store Managers when backordered items are assigned to their orders.</td>
+              <td>Review any store-specific prioritization to refine equitable distribution when supply is low.</td>
             </tr>
           </table>
         </div>
       </div>
-      
   </body>
 </html>

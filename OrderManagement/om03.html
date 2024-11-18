@@ -77,22 +77,22 @@
     <div class="use-case-container">
         <header>
           <h1>USE CASE NARRATIVE</h1>
-          <h2>Supplier and Backorder Management (Assign Backorder to Store Order)</h2>
+          <h2>Order Management (Receive Store Order)</h2>
         </header>
       
         <div class="section">
           <table>
             <tr>
               <td><strong>Use Case ID</strong></td>
-              <td>SBM-06</td>
+              <td>OM-03</td>
               <td><strong>Version</strong></td>
               <td>1.0</td>
             </tr>
             <tr>
               <td><strong>Use Case Name</strong></td>
-              <td>Assign Backorder to Store Order</td>
+              <td>Receive Store Order</td>
               <td><strong>Date</strong></td>
-              <td>2024-11-05</td>
+              <td>2024-11-02</td>
             </tr>
             <tr>
               <td><strong>Author</strong></td>
@@ -110,8 +110,8 @@
         <div class="section">
           <div class="checkbox-container">
             <strong>Use Case Type:</strong><br />
-            ☐ Business Requirement<br />
-            ☒ System Analysis
+            ☒ Business Requirement<br />
+            ☐ System Analysis
           </div>
         </div>
       
@@ -119,41 +119,41 @@
           <table>
             <tr>
               <td><strong>Source</strong></td>
-              <td>System Analysis</td>
+              <td>Business Requirement</td>
             </tr>
             <tr>
               <td><strong>Primary Actor</strong></td>
-              <td>Store Manager</td>
+              <td>Warehouse Worker, Store Manager</td>
             </tr>
             <tr>
               <td><strong>Other Actor(s)</strong></td>
-              <td>Warehouse Manager</td>
+              <td>Delivery Driver, Store</td>
             </tr>
             <tr>
               <td><strong>Stakeholders</strong></td>
               <td>
                 <ul>
-                  <li>Store Operations</li>
                   <li>Inventory Management</li>
+                  <li>Store Operations</li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><strong>Description</strong></td>
               <td>
-                This use case allows the Warehouse Worker to assign backordered items to specific store orders once the items are received. This action helps ensure that backordered inventory is distributed based on demand.
+                This use case describes the process of receiving a store order. When an order arrives from the warehouse or delivery driver, it is checked for accuracy and logged into the inventory system to update stock levels.
               </td>
             </tr>
             <tr>
               <td><strong>Pre Condition(s)</strong></td>
               <td>
-                Backordered items have been received and are available for distribution.<br />
-                The store order requesting the items is pending fulfillment.
+                A store order has been placed and dispatched from the warehouse.<br />
+                Warehouse Worker, Store Manager, or Store Employee is authorized to receive orders.
               </td>
             </tr>
             <tr>
               <td><strong>Triggers</strong></td>
-              <td>New stock for a backordered item arrives at the warehouse.</td>
+              <td>The arrival of a store order at the designated location.</td>
             </tr>
           </table>
         </div>
@@ -166,16 +166,24 @@
               <th>System/Result, Info required</th>
             </tr>
             <tr>
-              <td>1) Warehouse Worker selects "Assign Backorder" for the received items</td>
-              <td>System lists store orders that requested backordered items</td>
+              <td>Warehouse Worker or Store Manager selects the “Receive Store Order” option</td>
+              <td>System displays a list of expected incoming store orders for the day</td>
             </tr>
             <tr>
-              <td>2) Warehouse Worker assigns quantities of received items to relevant store orders</td>
-              <td>System updates order details and logs item allocation</td>
+              <td>Actor identifies the order to be received</td>
+              <td>System loads details for the selected order, including items and quantities</td>
             </tr>
             <tr>
-              <td>3) Warehouse Worker confirms the assignment</td>
-              <td>System generates confirmation for assigned quantities and updates order status</td>
+              <td>Actor checks items against the delivery manifest</td>
+              <td>System verifies the quantities and matches items against the order</td>
+            </tr>
+            <tr>
+              <td>Actor confirms the order is correct</td>
+              <td>System logs the order as “Received,” updates inventory, and issues a receipt</td>
+            </tr>
+            <tr>
+              <td>Actor submits any discrepancies found</td>
+              <td>System flags the order for further review and records the issue</td>
             </tr>
           </table>
         </div>
@@ -188,20 +196,20 @@
               <th>System/Result, Info required</th>
             </tr>
             <tr>
-              <td>1) Warehouse Worker partially assigns backordered items, leaving some stock unassigned</td>
-              <td>System logs remaining stock as available for new orders or backorders</td>
+              <td>Actor finds missing or damaged items during the check</td>
+              <td>System prompts actor to record details of discrepancies, such as missing or damaged items</td>
             </tr>
           </table>
         </div>
       
         <div class="section">
           <h3 class="flow-header">Conclusion</h3>
-          <p>Backordered items are successfully allocated to pending store orders, updating order status and availability.</p>
+          <p>The store order is marked as received, inventory is updated, and any discrepancies are recorded for follow-up.</p>
         </div>
       
         <div class="section">
           <h3 class="flow-header">Post Condition(s)</h3>
-          <p>The system marks the backordered items as fulfilled for those store orders, updating inventory and order records.</p>
+          <p>Inventory levels are updated in the store, and the order status is logged as “Received” in the system.</p>
         </div>
       
         <div class="section">
@@ -211,34 +219,39 @@
               <td><strong>Business Rules</strong></td>
               <td>
                 <ul>
-                  <li>Priority for assigning backordered items should follow business rules (e.g., priority orders first).</li>
-                  <li>Only authorized personnel can assign received stock to backorders.</li>
+                  <li>Orders must be checked in full and signed off by an authorized actor.</li>
+                  <li>Discrepancies require an additional review by the warehouse team or manager.</li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><strong>Special Requirements</strong></td>
-              <td>The system should display prioritized backorders for critical items and emergency orders.</td>
+              <td>
+                <ul>
+                  <li>System should support barcode scanning for quick item checks.</li>
+                  <li>Real-time inventory updates should be reflected as soon as the order is marked as received.</li>
+                </ul>
+              </td>
             </tr>
             <tr>
               <td><strong>Constraints and Specifications</strong></td>
-              <td>Partial assignments should be permitted, allowing flexibility in distribution.</td>
+              <td>All discrepancies must be resolved within a certain timeframe to maintain inventory accuracy.</td>
             </tr>
             <tr>
               <td><strong>Technology and Data</strong></td>
-              <td>Real-time inventory and order status synchronization required.</td>
+              <td>Order data is managed via the inventory system, with real-time updates.</td>
             </tr>
             <tr>
               <td><strong>Frequency</strong></td>
-              <td>Occurs whenever backordered stock is replenished.</td>
+              <td>Store orders are typically received weekly or as per the inventory schedule.</td>
             </tr>
             <tr>
               <td><strong>Assumptions</strong></td>
-              <td>Store orders are prioritized based on demand and urgency when assigning backordered items.</td>
+              <td>Delivery information is accurate and up-to-date in the system.</td>
             </tr>
             <tr>
               <td><strong>Notes / Open Issues</strong></td>
-              <td>Consider implementing automated notifications to Store Managers when backordered items are assigned to their orders.</td>
+              <td>Consider adding automated discrepancy alerts to notify the warehouse manager for quicker resolution.</td>
             </tr>
           </table>
         </div>

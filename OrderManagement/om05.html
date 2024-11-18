@@ -77,20 +77,20 @@
     <div class="use-case-container">
         <header>
           <h1>USE CASE NARRATIVE</h1>
-          <h2>Supplier and Backorder Management (Assign Backorder to Store Order)</h2>
+          <h2>Order Management (Process Emergency Order)</h2>
         </header>
       
         <div class="section">
           <table>
             <tr>
               <td><strong>Use Case ID</strong></td>
-              <td>SBM-06</td>
+              <td>OM-05</td>
               <td><strong>Version</strong></td>
               <td>1.0</td>
             </tr>
             <tr>
               <td><strong>Use Case Name</strong></td>
-              <td>Assign Backorder to Store Order</td>
+              <td>Process Emergency Order</td>
               <td><strong>Date</strong></td>
               <td>2024-11-05</td>
             </tr>
@@ -98,7 +98,7 @@
               <td><strong>Author</strong></td>
               <td>Tony Power</td>
               <td><strong>Complexity</strong></td>
-              <td>Medium</td>
+              <td>High</td>
             </tr>
             <tr>
               <td><strong>Priority</strong></td>
@@ -110,8 +110,8 @@
         <div class="section">
           <div class="checkbox-container">
             <strong>Use Case Type:</strong><br />
-            ☐ Business Requirement<br />
-            ☒ System Analysis
+            ☒ Business Requirement<br />
+            ☐ System Analysis
           </div>
         </div>
       
@@ -119,41 +119,41 @@
           <table>
             <tr>
               <td><strong>Source</strong></td>
-              <td>System Analysis</td>
+              <td>Business Requirement</td>
             </tr>
             <tr>
               <td><strong>Primary Actor</strong></td>
-              <td>Store Manager</td>
+              <td>Warehouse Worker</td>
             </tr>
             <tr>
               <td><strong>Other Actor(s)</strong></td>
-              <td>Warehouse Manager</td>
+              <td>Store Manager</td>
             </tr>
             <tr>
               <td><strong>Stakeholders</strong></td>
               <td>
                 <ul>
                   <li>Store Operations</li>
-                  <li>Inventory Management</li>
+                  <li>Warehouse Management</li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><strong>Description</strong></td>
               <td>
-                This use case allows the Warehouse Worker to assign backordered items to specific store orders once the items are received. This action helps ensure that backordered inventory is distributed based on demand.
+                This use case outlines the process for handling emergency orders in the warehouse, prioritizing their preparation and allocation. The Warehouse Worker must assess item availability, assign quantities promptly, and expedite fulfillment.
               </td>
             </tr>
             <tr>
               <td><strong>Pre Condition(s)</strong></td>
               <td>
-                Backordered items have been received and are available for distribution.<br />
-                The store order requesting the items is pending fulfillment.
+                An emergency order has been submitted by a store and appears in the warehouse’s system for urgent processing.<br />
+                The Warehouse Worker has permissions to process and prioritize emergency orders.
               </td>
             </tr>
             <tr>
               <td><strong>Triggers</strong></td>
-              <td>New stock for a backordered item arrives at the warehouse.</td>
+              <td>Notification of a new emergency order requiring immediate action.</td>
             </tr>
           </table>
         </div>
@@ -166,16 +166,20 @@
               <th>System/Result, Info required</th>
             </tr>
             <tr>
-              <td>1) Warehouse Worker selects "Assign Backorder" for the received items</td>
-              <td>System lists store orders that requested backordered items</td>
+              <td>Warehouse Worker selects “Process Emergency Order” option</td>
+              <td>System displays the emergency order flagged for priority</td>
             </tr>
             <tr>
-              <td>2) Warehouse Worker assigns quantities of received items to relevant store orders</td>
-              <td>System updates order details and logs item allocation</td>
+              <td>Actor verifies items in the emergency order</td>
+              <td>System shows requested items with availability and flags shortages</td>
             </tr>
             <tr>
-              <td>3) Warehouse Worker confirms the assignment</td>
-              <td>System generates confirmation for assigned quantities and updates order status</td>
+              <td>Actor assigns available quantities to fulfill the order</td>
+              <td>System updates quantities allocated to the emergency order, with preference over regular orders</td>
+            </tr>
+            <tr>
+              <td>Actor confirms order completion</td>
+              <td>System marks the emergency order as “Processed” and sends it to fulfillment for expedited handling</td>
             </tr>
           </table>
         </div>
@@ -188,20 +192,20 @@
               <th>System/Result, Info required</th>
             </tr>
             <tr>
-              <td>1) Warehouse Worker partially assigns backordered items, leaving some stock unassigned</td>
-              <td>System logs remaining stock as available for new orders or backorders</td>
+              <td>If items are unavailable</td>
+              <td>System prompts actor to create or update a backorder, ensuring the order will be fulfilled upon restock</td>
             </tr>
           </table>
         </div>
       
         <div class="section">
           <h3 class="flow-header">Conclusion</h3>
-          <p>Backordered items are successfully allocated to pending store orders, updating order status and availability.</p>
+          <p>The emergency order is processed and prioritized for rapid fulfillment.</p>
         </div>
       
         <div class="section">
           <h3 class="flow-header">Post Condition(s)</h3>
-          <p>The system marks the backordered items as fulfilled for those store orders, updating inventory and order records.</p>
+          <p>The emergency order is sent for immediate fulfillment, and any unfulfilled items are backordered.</p>
         </div>
       
         <div class="section">
@@ -211,34 +215,39 @@
               <td><strong>Business Rules</strong></td>
               <td>
                 <ul>
-                  <li>Priority for assigning backordered items should follow business rules (e.g., priority orders first).</li>
-                  <li>Only authorized personnel can assign received stock to backorders.</li>
+                  <li>Emergency orders take precedence over standard orders in both processing and fulfillment.</li>
+                  <li>Items on emergency orders that are unavailable are flagged and prioritized once restocked.</li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><strong>Special Requirements</strong></td>
-              <td>The system should display prioritized backorders for critical items and emergency orders.</td>
+              <td>
+                <ul>
+                  <li>The system should support notifications to update the requesting store on the status of their emergency order.</li>
+                  <li>Emergency orders should reflect high-priority status in the inventory and fulfillment queues.</li>
+                </ul>
+              </td>
             </tr>
             <tr>
               <td><strong>Constraints and Specifications</strong></td>
-              <td>Partial assignments should be permitted, allowing flexibility in distribution.</td>
+              <td>Emergency order processing must align with warehouse capacity and operational limits.</td>
             </tr>
             <tr>
               <td><strong>Technology and Data</strong></td>
-              <td>Real-time inventory and order status synchronization required.</td>
+              <td>Real-time updates on inventory levels are essential to expedite processing of emergency orders.</td>
             </tr>
             <tr>
               <td><strong>Frequency</strong></td>
-              <td>Occurs whenever backordered stock is replenished.</td>
+              <td>Emergency orders are occasional but must be processed immediately as they appear.</td>
             </tr>
             <tr>
               <td><strong>Assumptions</strong></td>
-              <td>Store orders are prioritized based on demand and urgency when assigning backordered items.</td>
+              <td>Inventory data is accurate and up-to-date to avoid processing delays.</td>
             </tr>
             <tr>
               <td><strong>Notes / Open Issues</strong></td>
-              <td>Consider implementing automated notifications to Store Managers when backordered items are assigned to their orders.</td>
+              <td>Explore automated restocking alerts to further reduce emergency order dependency.</td>
             </tr>
           </table>
         </div>

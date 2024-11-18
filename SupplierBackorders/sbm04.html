@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Use Case: Supplier and Backorder Management (View Backorders)</title>
+    <title>Use Case: Supplier and Backorder Management (Receive Supplier Order)</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -79,7 +79,7 @@
         <h1>USE CASE NARRATIVE</h1>
         <h2>Supplier and Backorder Management (View Backorders)</h2>
       </header>
-
+    
       <div class="section">
         <table>
           <tr>
@@ -106,7 +106,15 @@
           </tr>
         </table>
       </div>
-
+    
+      <div class="section">
+        <div class="checkbox-container">
+          <strong>Use Case Type:</strong><br />
+          ☒ Business Requirement<br />
+          ☐ System Analysis
+        </div>
+      </div>
+    
       <div class="section">
         <table>
           <tr>
@@ -119,33 +127,37 @@
           </tr>
           <tr>
             <td><strong>Other Actor(s)</strong></td>
-            <td>Supplier, Admin</td>
+            <td>Store Manager</td>
           </tr>
           <tr>
             <td><strong>Stakeholders</strong></td>
             <td>
               <ul>
                 <li>Procurement</li>
-                <li>Finance</li>
                 <li>Inventory Management</li>
               </ul>
             </td>
           </tr>
           <tr>
             <td><strong>Description</strong></td>
-            <td>This use case describes how a warehouse manager views the list of backorders to manage inventory effectively.</td>
+            <td>This use case enables warehouse and store managers to view all backorders, helping them track items that are pending delivery due to stock shortages. Users can view current backorders, filter by specific dates, and monitor fulfillment statuses.</td>
           </tr>
           <tr>
             <td><strong>Pre Condition(s)</strong></td>
-            <td>The system must have existing backorder records.</td>
+            <td>
+              <ul>
+                <li>The system contains data on backordered items due to previous inventory shortages.</li>
+                <li>Access rights are granted to authorized personnel to view backorders.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <td><strong>Triggers</strong></td>
-            <td>The warehouse manager requests to view current backorders.</td>
+            <td>A request from the warehouse or store manager to view backorders.</td>
           </tr>
         </table>
       </div>
-
+    
       <div class="section">
         <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
         <table>
@@ -154,24 +166,91 @@
             <th>System/Result, Info required</th>
           </tr>
           <tr>
-            <td>1. Warehouse Manager selects "View Backorders".</td>
-            <td>System displays the list of current backorders.</td>
+            <td>1. Manager selects "View Backorders" from the dashboard.</td>
+            <td>System displays a list of active backorders.</td>
           </tr>
           <tr>
-            <td>2. Warehouse Manager reviews the backorder details.</td>
-            <td>System allows sorting and filtering of backorders.</td>
+            <td>2. Manager applies filters (e.g., date range, supplier, item type).</td>
+            <td>System updates the list based on filters.</td>
+          </tr>
+          <tr>
+            <td>3. Manager selects a specific backorder for details.</td>
+            <td>System shows detailed information, including expected delivery dates and quantities.</td>
+          </tr>
+          <tr>
+            <td>4. Manager notes or exports backorder information as needed.</td>
+            <td>System generates a report, if required.</td>
           </tr>
         </table>
       </div>
-
+    
       <div class="section">
-        <h3 class="flow-header">Conclusion</h3>
+        <h3 class="flow-header">Alternate Flow</h3>
         <table>
           <tr>
-            <td>The backorder records are successfully displayed for review.</td>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Manager searches for historical backorders.</td>
+            <td>System displays closed backorders within the date range.</td>
+          </tr>
+          <tr>
+            <td>2. Manager reviews unresolved backorders.</td>
+            <td>System flags these for further action, if needed.</td>
+          </tr>
+        </table>
+      </div>
+    
+      <div class="section">
+        <h3 class="flow-header">Conclusion</h3>
+        <p>The manager successfully views backorder information, with the option to drill down into details for specific items.</p>
+      </div>
+    
+      <div class="section">
+        <h3 class="flow-header">Post Condition(s)</h3>
+        <p>The system records any actions taken (e.g., export, filter adjustments) and maintains an accurate, up-to-date backorder list.</p>
+      </div>
+    
+      <div class="section">
+        <h3 class="flow-header">Additional Information</h3>
+        <table>
+          <tr>
+            <td><strong>Business Rules</strong></td>
+            <td>
+              <ul>
+                <li>Only authorized users can access backorder data.</li>
+                <li>Backorder records must be kept for a specified period for reporting and audit purposes.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Special Requirements</strong></td>
+            <td>Data filtering options must be comprehensive to allow for tailored reporting (e.g., by date, item type).</td>
+          </tr>
+          <tr>
+            <td><strong>Constraints and Specifications</strong></td>
+            <td>System should limit access to only active and authorized users to ensure data confidentiality.</td>
+          </tr>
+          <tr>
+            <td><strong>Technology and Data</strong></td>
+            <td>Real-time integration with the inventory system to reflect backorder status updates.</td>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>As needed, especially when items are low in stock or shipments are delayed.</td>
+          </tr>
+          <tr>
+            <td><strong>Assumptions</strong></td>
+            <td>Warehouse and store managers have regular access to a workstation or device to view backorder information.</td>
+          </tr>
+          <tr>
+            <td><strong>Notes / Open Issues</strong></td>
+            <td>Define specific access restrictions for viewing historical versus active backorders.</td>
           </tr>
         </table>
       </div>
     </div>
+    
   </body>
 </html>

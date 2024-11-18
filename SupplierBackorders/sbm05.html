@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Use Case: Supplier and Backorder Management (Add Items to Backorder)</title>
+    <title>Use Case: Supplier and Backorder Management (Receive Supplier Order)</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -79,7 +79,7 @@
         <h1>USE CASE NARRATIVE</h1>
         <h2>Supplier and Backorder Management (Add Items to Backorder)</h2>
       </header>
-
+    
       <div class="section">
         <table>
           <tr>
@@ -106,7 +106,15 @@
           </tr>
         </table>
       </div>
-
+    
+      <div class="section">
+        <div class="checkbox-container">
+          <strong>Use Case Type:</strong><br />
+          ☒ Business Requirement<br />
+          ☐ System Analysis
+        </div>
+      </div>
+    
       <div class="section">
         <table>
           <tr>
@@ -115,37 +123,41 @@
           </tr>
           <tr>
             <td><strong>Primary Actor</strong></td>
-            <td>Warehouse Manager</td>
+            <td>Warehouse Worker</td>
           </tr>
           <tr>
             <td><strong>Other Actor(s)</strong></td>
-            <td>Supplier, Admin</td>
+            <td>Warehouse Manager</td>
           </tr>
           <tr>
             <td><strong>Stakeholders</strong></td>
             <td>
               <ul>
                 <li>Procurement</li>
-                <li>Finance</li>
                 <li>Inventory Management</li>
               </ul>
             </td>
           </tr>
           <tr>
             <td><strong>Description</strong></td>
-            <td>This use case describes how a warehouse manager adds items to a backorder list to manage inventory shortages effectively.</td>
+            <td>
+              This use case allows the Warehouse Worker to create backorders for items that are currently unavailable in stock but are needed to fulfill store orders. This ensures that demand is logged and can be fulfilled when stock is available.
+            </td>
           </tr>
           <tr>
             <td><strong>Pre Condition(s)</strong></td>
-            <td>Items must be identified as out of stock and backorder must be allowed in the system.</td>
+            <td>
+              The system is updated with current inventory levels and allows for backordering.<br />
+              The Warehouse Worker has access to store order details indicating which items are out of stock.
+            </td>
           </tr>
           <tr>
             <td><strong>Triggers</strong></td>
-            <td>The warehouse manager identifies an item that needs to be backordered.</td>
+            <td>A store order includes items that are out of stock, prompting a backorder.</td>
           </tr>
         </table>
       </div>
-
+    
       <div class="section">
         <h3 class="flow-header">Basic Flow (Typical Course of Events)</h3>
         <table>
@@ -154,25 +166,87 @@
             <th>System/Result, Info required</th>
           </tr>
           <tr>
-            <td>1. Warehouse Manager selects "Add to Backorder".</td>
-            <td>System prompts for item details and quantity.</td>
+            <td>1. Warehouse Worker selects "Add to Backorder" on the store order page</td>
+            <td>System displays out-of-stock items for that order</td>
           </tr>
           <tr>
-            <td>2. Warehouse Manager enters item details.</td>
-            <td>System validates item information.</td>
+            <td>2. Warehouse Worker confirms items to be backordered</td>
+            <td>System generates a backorder entry with item details</td>
           </tr>
           <tr>
-            <td>3. Warehouse Manager confirms addition to backorder.</td>
-            <td>System updates the backorder list and notifies relevant stakeholders.</td>
+            <td>3. Warehouse Worker confirms the creation of the backorder</td>
+            <td>System assigns a backorder ID and updates the backorder list</td>
+          </tr>
+          <tr>
+            <td>4. Confirmation of backorder creation is displayed</td>
+            <td>System displays confirmation of the backorder creation</td>
           </tr>
         </table>
       </div>
-
+    
       <div class="section">
-        <h3 class="flow-header">Conclusion</h3>
+        <h3 class="flow-header">Alternate Flow</h3>
         <table>
           <tr>
-            <td>The items are successfully added to the backorder list, ensuring that stock levels are managed effectively.</td>
+            <th>Actor Action</th>
+            <th>System/Result, Info required</th>
+          </tr>
+          <tr>
+            <td>1. Warehouse Worker sets a priority level for backordered items</td>
+            <td>System prioritizes fulfillment when stock arrives</td>
+          </tr>
+          <tr>
+            <td>2. Warehouse Worker modifies quantities or adds notes for specific items</td>
+            <td>System logs changes and updates the backorder entry</td>
+          </tr>
+        </table>
+      </div>
+    
+      <div class="section">
+        <h3 class="flow-header">Conclusion</h3>
+        <p>Items are successfully added to a backorder list, ready for processing when stock becomes available.</p>
+      </div>
+    
+      <div class="section">
+        <h3 class="flow-header">Post Condition(s)</h3>
+        <p>The system logs the backorder and updates inventory needs, notifying procurement to restock these items as necessary.</p>
+      </div>
+    
+      <div class="section">
+        <h3 class="flow-header">Additional Information</h3>
+        <table>
+          <tr>
+            <td><strong>Business Rules</strong></td>
+            <td>
+              <ul>
+                <li>Only authorized users can create and manage backorders.</li>
+                <li>Backorders should prioritize items based on order type (e.g., emergency or regular).</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Special Requirements</strong></td>
+            <td>Backorder entries should be editable if additional items are later added to the store order.</td>
+          </tr>
+          <tr>
+            <td><strong>Constraints and Specifications</strong></td>
+            <td>The system must track the dates of backorders and quantities per item for inventory planning.</td>
+          </tr>
+          <tr>
+            <td><strong>Technology and Data</strong></td>
+            <td>Integration with the inventory and procurement systems to automatically trigger restocking.</td>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>Backorders are created as needed when items are out of stock.</td>
+          </tr>
+          <tr>
+            <td><strong>Assumptions</strong></td>
+            <td>Procurement will address backordered items promptly to avoid delays.</td>
+          </tr>
+          <tr>
+            <td><strong>Notes / Open Issues</strong></td>
+            <td>Consider adding automated notifications for backordered items when stock is replenished.</td>
           </tr>
         </table>
       </div>
